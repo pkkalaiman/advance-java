@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -28,7 +27,8 @@
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
-</head>
+	</he
+ad>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
@@ -43,16 +43,17 @@
 			</button>
 
 			<form class="d-flex">
-				<a href="valentens" class="form-control me-0"
-					style='color: OrangeRed'>Vlantense</a> 
-					
-				
+				<a href="Mobile" class="form-control me-0" style='color: OrangeRed'>Mobile</a>
+
+
 			</form>
 		</div>
 	</nav>
 
 
-	<h1 style="color: Lime">Welcome to Valantense</h1>
+	<h1 style="color: Lime">Welcome to Mobile</h1>
+
 
 </body>
+
 </html>

@@ -17,8 +17,11 @@ import lombok.ToString;
 public class ValantenseDTO {
 
 	@Id
+	private int id;
+	
 	@Size(min = 3, max = 20, message = "Name less then 3 Greater then 20")
 	private String name;
+	
 	@Size(min = 2, max = 30, message = "Valantense Name less then 2 Greater then 30")
 	private String valantenseName;
 

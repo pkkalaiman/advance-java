@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -43,16 +41,14 @@
 			</button>
 
 			<form class="d-flex">
-				<a href="valentens" class="form-control me-0"
-					style='color: OrangeRed'>Vlantense</a> 
-					
-				
+				<a href="mobile" class="form-control me-0"
+					style='color: OrangeRed'>Mobiles</a> 
 			</form>
 		</div>
 	</nav>
+ 			
 
-
-	<h1 style="color: Lime">Welcome to Valantense</h1>
+	<h1 style="color: Lime">Welcome to P K Mani Mobile</h1>
 
 </body>
 </html>

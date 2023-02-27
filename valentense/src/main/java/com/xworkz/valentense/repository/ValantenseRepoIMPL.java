@@ -7,7 +7,8 @@ import javax.persistence.EntityTransaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.xworkz.valentense.DTO.ValantenseEntity;
+import com.xworkz.valentense.DTO.ValantenseDTO;
+import com.xworkz.valentense.entity.ValantenseEntity;
 
 @Repository
 public class ValantenseRepoIMPL implements ValantenseRepo {
@@ -22,7 +23,7 @@ public class ValantenseRepoIMPL implements ValantenseRepo {
 	@Override
 	public boolean Save(ValantenseEntity entity) {
 		System.out.println("Running in Save in Repository");
-		
+
 		EntityManager entityManager = this.entityManagerFactory.createEntityManager();
 		EntityTransaction transection = entityManager.getTransaction();
 		transection.begin();
@@ -33,4 +34,11 @@ public class ValantenseRepoIMPL implements ValantenseRepo {
 		return true;
 	}
 
+	public ValantenseEntity findById(int id) {
+
+		EntityManager manager = entityManagerFactory.createEntityManager();
+		ValantenseEntity enity = manager.find(ValantenseEntity.class, id);
+		manager.close();
+		return enity;
+	}
 }
