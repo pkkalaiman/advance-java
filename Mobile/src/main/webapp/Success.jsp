@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Mani Mobiles</title>
 </head>
 <body>
 <h1 style="color:green">Order Successs.....</h1>

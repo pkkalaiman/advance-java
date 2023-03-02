@@ -49,10 +49,10 @@ public class MobileController {
 	@GetMapping("/search")
 	public String onSearch(@RequestParam int id, Model model) {
 		System.out.println("Created onSearch running for Id :" + id);
-		MobileEntity dto = this.mobileService.finById(id);
-		if(dto !=null) {
+		MobileDTO dto = this.mobileService.finById(id);
+		if (dto != null) {
 			model.addAttribute("Dto :", dto);
-		}else {
+		} else {
 			model.addAttribute("message", "Data Not Found");
 		}
 		return "MobileSearch";
@@ -74,6 +74,41 @@ public class MobileController {
 		model.addAttribute("error", violation);
 		model.addAttribute("Validdate Dto :", dto);
 		return "Mobiles";
+	}
+
+	@GetMapping("/searchbyname")
+	public String onSearchByName(@RequestParam String name, Model model) {
+
+		System.out.println("Running in onSerachByName Controller... :" + name);
+		List<MobileDTO> list = this.mobileService.findByName(name);
+		model.addAttribute("list", list);
+		model.addAttribute("error", "Name Not Macthed");
+		return "SearchByName";
+	}
+
+	@GetMapping("/Updated")
+	public String onUpdate(@RequestParam int id, Model model) {
+		System.out.println("Running in onUpdated in Controller :" + id);
+		
+		MobileDTO entity = this.mobileService.finById(id);
+		System.out.println("entity :" + entity);
+		model.addAttribute("os", os);
+		model.addAttribute("storage", storage);
+		model.addAttribute("colors", colors);
+		return "Updated";
+	}
+
+	@PostMapping("/Updated")
+	public String onUpdate(MobileDTO dto, Model model) {
+		System.out.println("Running updated :" + dto);
+		Set<ConstraintViolation<MobileDTO>> constraintviolation = this.mobileService.ValidateAndUpdate(dto);
+
+		if (constraintviolation.size() > 0) {
+			model.addAttribute("error", constraintviolation);
+		} else {
+			model.addAttribute("message", "Mobile Updated Successfully....");
+		}
+		return "Updated";
 	}
 
 }

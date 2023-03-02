@@ -3,6 +3,7 @@ package com.xworkz.mobile.Entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "mobile_table")
+@NamedQuery(name="findByName",query = "select ent from MobileEntity ent where ent.name=:nam")
 public class MobileEntity {
 
 	@Id
@@ -28,7 +30,7 @@ public class MobileEntity {
 	private String modelName;
 
 	@Column(name = "m_storage")
-	private int storage;
+	private String storage;
 
 	@Column(name = "m_OS")
 	private String os;

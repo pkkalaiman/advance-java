@@ -18,6 +18,7 @@ public class MobileConfiguation {
 
 	@Bean
 	public ViewResolver viewResolver() {
+		System.out.println("Created ViewResolver..");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver("/", ".jsp");
 		return resolver;
 	}

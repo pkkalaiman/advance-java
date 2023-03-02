@@ -1,6 +1,8 @@
 package com.xworkz.mobile.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -26,15 +28,15 @@ public class MobileServiceIMPL implements MobileService {
 	}
 
 	@Override
-	public MobileEntity finById(int id) {
+	public MobileDTO finById(int id) {
 		if (id > 0) {
 			MobileEntity mobileEntity = this.mobileRepo.findById(id);
-			
+
 			if (mobileEntity != null) {
 				System.out.println("Entity is found in Service for id :" + id);
-				
-				MobileEntity mentity = new MobileEntity();
-				
+
+				MobileDTO mentity = new MobileDTO();
+				mentity.setId(mobileEntity.getId());
 				mentity.setName(mobileEntity.getName());
 				mentity.setBrandName(mobileEntity.getBrandName());
 				mentity.setColors(mobileEntity.getColors());
@@ -54,6 +56,7 @@ public class MobileServiceIMPL implements MobileService {
 	public Set<ConstraintViolation<MobileDTO>> ValidaateAndSave(MobileDTO dto) {
 		System.out.println("Created in ValidateAndSave in Servicee.....");
 		System.out.println(dto);
+
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 
@@ -66,7 +69,7 @@ public class MobileServiceIMPL implements MobileService {
 			System.out.println("Violation does not Excist, go to Success Page");
 
 			MobileEntity entity = new MobileEntity();
-
+			entity.setId(dto.getId());
 			entity.setName(dto.getName());
 			entity.setBrandName(dto.getBrandName());
 			entity.setModelName(dto.getModelName());
@@ -82,6 +85,70 @@ public class MobileServiceIMPL implements MobileService {
 			return Collections.emptySet();
 		}
 
+	}
+
+	@Override
+	public List<MobileDTO> findByName(String name) {
+		System.out.println("Running in findByName in MobileService :" + name);
+
+		if (name != null && !name.isEmpty()) {
+			System.out.println("Name is Valid Calling Repo...");
+
+			List<MobileEntity> entityies = this.mobileRepo.findByName(name);
+
+			List<MobileDTO> mobdto = new ArrayList<MobileDTO>();
+
+			for (MobileEntity entites : entityies) {
+				MobileDTO dto = new MobileDTO();
+				dto.setId(entites.getId());
+				dto.setName(entites.getName());
+				dto.setBrandName(entites.getBrandName());
+				dto.setModelName(entites.getModelName());
+				dto.setColors(entites.getColors());
+				dto.setOs(entites.getOs());
+				dto.setPrice(entites.getPrice());
+				dto.setStorage(entites.getStorage());
+				dto.setTechnology(entites.getTechnology());
+				mobdto.add(dto);
+			}
+			System.out.println("Size of mobdto :" + mobdto.size());
+			System.out.println("Size Of Entites :" + entityies.size());
+
+			return mobdto;
+
+		} else {
+			System.out.println("Name is Invalid..");
+		}
+		return Collections.emptyList();
+	}
+
+	@Override
+	public Set<ConstraintViolation<MobileDTO>> ValidateAndUpdate(MobileDTO dto) {
+		System.out.println("Created in ValidateAndUpdate.....");
+
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+		Set<ConstraintViolation<MobileDTO>> violation = validator.validate(dto);
+		if (violation != null && !violation.isEmpty()) {
+			System.err.println("Violation in Dto :" + dto);
+			return violation;
+		} else {
+			System.out.println("vilations is n not there in dto and can Saved...");
+			MobileEntity entity = new MobileEntity();
+			entity.setId(dto.getId());
+			entity.setName(dto.getName());
+			entity.setBrandName(dto.getBrandName());
+			entity.setColors(dto.getColors());
+			entity.setModelName(dto.getModelName());
+			entity.setOs(dto.getOs());
+			entity.setPrice(dto.getPrice());
+			entity.setStorage(dto.getStorage());
+			entity.setTechnology(dto.getTechnology());
+
+			boolean saved = this.mobileRepo.update(entity);
+			System.out.println("Entity Data Is Saved :" + saved);
+		}
+		return Collections.emptySet();
 	}
 
 }

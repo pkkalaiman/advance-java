@@ -24,29 +24,37 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="60" height="50">
+				alt="" width="50" height="30">
 
 
 				<form class="d-flex">
 					<a href="index.jsp" class="form-control me-0"
-						style='color: OrangeRed'>Home</a><br>
-						<a href="MobileSearch.jsp" class="form-control me-0"
+						style='color: OrangeRed'>Home</a>
+				</form>
+
+				<form class="d-flex">
+					<a href="MobileSearch.jsp" class="form-control me-0"
 						style='color: OrangeRed'>MobileSearch</a>
 				</form>
 		</div>
 	</nav>
 	
-	<c:forEach items="${error}" var="e">
-		<span style='color: red;'>${e.message}</span>
+	<c:forEach items="${error }" var="e">
+		<span style='color: red;' ${e }>${e.getMessage()}</span>
 	</c:forEach>
 
-	<form action="mobile" method="post"
+	<form action="Updated" method="post"
 		class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-info">
 
 		<table>
 			<tr>
-				<td><h5>Welcome to Mobile Data Saving....</h5></td>
+				<td><h5>Welcome to Mobile Data Updated Page....</h5></td>
+			</tr>
+			
+			<tr>
+				<td style="color:green">Mobile Name</td>
+				<td><input type="text" name="id" value="${dto.getid()}"></td>
 			</tr>
 
 			<tr>
@@ -99,6 +107,7 @@ m-5 pb-5 bg-info">
 				<td style="color:green">Cellular Technology</td>
 				<td><input type="text" name="technology" value="">
 	                
+
 			</tr>
 			
 
@@ -117,7 +126,7 @@ m-5 pb-5 bg-info">
 		</table>
 
 		<tr>
-			<td><input type="submit" value="Order"
+			<td><input type="submit" value="update"
 				class="btn btn-outline-success btn-green"></td>
 		</tr>
 

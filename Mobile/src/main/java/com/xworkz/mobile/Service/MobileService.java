@@ -1,5 +1,7 @@
 package com.xworkz.mobile.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintViolation;
@@ -11,8 +13,14 @@ public interface MobileService {
 
 	Set<ConstraintViolation<MobileDTO>> ValidaateAndSave(MobileDTO dto);
 
-	default MobileEntity finById(int id) {
-		
+	Set<ConstraintViolation<MobileDTO>> ValidateAndUpdate(MobileDTO dto);
+	
+	default MobileDTO finById(int id) {
+
 		return null;
+	}
+
+	default List<MobileDTO> findByName(String name) {
+		return Collections.emptyList();
 	}
 }

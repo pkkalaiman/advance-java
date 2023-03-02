@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Mani Mobiles</title>
 </head>
 <body>
 
@@ -22,7 +22,7 @@
 	<nav class="navbar navbar-Light  bg-primary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
-				src="https://x-workz.in/static/media/Logo.cf195593dc1b3f921369.png"
+				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
 				alt="" width="50" height="30">
 
 			</a>
@@ -32,7 +32,7 @@
 				</form>
 			
 			<form class="d-flex">
-					<a href="Mobiles" class="form-control me-0"
+					<a href="mobile" class="form-control me-0"
 						style='color: OrangeRed'>Mobiles</a>
 				</form>
 			
@@ -46,22 +46,25 @@
 	
 	<h3><span style='color:red'>${message}</span></h3>
 	
-	<form action="search" method="get">
+	<form action="search" method="get" class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
+m-5 pb-5 bg-info">
 	
 	Search By Id<input type="text" name="id"/>
 	<input type="submit" value="Search"/>
-	</form>
+	</form class="table">
 	
 	<div>
 	
 	<h3>Search Result: </h3>
+	ID :${dto.id}<br>
 	Name : ${dto.name}<br>
 	Brand Name: ${dto.brandName}<br>
 	Model Name : ${dto.modelName}<br>
 	Storage : ${dto.storage}<br>
 	Os : ${dto.os}<br>
 	Price :${dto.price}<br>
-	Colors :${dto.colors}
+	Colors :${dto.colors}<br>
+	Technology :${dto.technology}
 	
 	</div>
 
