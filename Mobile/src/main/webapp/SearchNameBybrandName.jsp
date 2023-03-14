@@ -7,58 +7,47 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Mani Mobile</title>
+<title>Mani Mobiles</title>
 </head>
 <body>
 
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link
+		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+		rel="stylesheet">
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-Light  bg-primary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="50" height="30">
+				alt="" width="60" height="50">
 
-			</a>
-			<form class="d-flex">
-					<a href="index.jsp" class="form-control me-0"
-						style='color: Violet'>Home</a>
+
+				<form class="d-flex">
+					<a href="index.jsp" class="form-control me-0"style='color: OrangeRed'>Home</a><br> 
+					
 				</form>
-			
-			<form class="d-flex">
-					<a href="mobile" class="form-control me-0"
-						style='color: Violet'>Mobiles</a>
-				</form>
-			
-			
-			
 		</div>
 	</nav>
-	
- <!-- <marquee> <h1 style="color:pink">Welcome to Mobile Search</h1></marquee> -->
+
+
+	<div class="container"> <div class="ticker"> <div class="title"><h2 align="center" style="color:OrangeRed">Breaking News</h2></div> 
+ <div class="news"> <marquee class="news-content"> <p style="color:indigo">Welcome to P K Mani Mobile ,Dhamaaka offer buy 1 get 1 </p> </marquee> </div> </div> </div>
   
- <div class="container"> <div class="ticker"> <div class="title"><h2 align="center" style="color:OrangeRed">Breaking News</h2></div> 
- <div class="news"> <marquee class="news-content"> <p style="color:indigo">Welcome to P K Mani Mobile , Today i will Give Big offer For You , By One Mobile Get On Hair Phone</p> </marquee> </div> </div> </div>
-  
 	
 	
-	<h3><span style='color:red'>${error}</span></h3>
+	<h3><span style='color:red'>${Error}</span></h3>
 	
 	<h3><span style="color:green">${message }</span> </h3>
 	
-	<form action="searchbyname" method="get" class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
+	<form action="searchNameBybrandName" method="get" class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-info">
 	
-	Search By Name<input type="text" name="name"/>
+	Search ByNameByBrandName<input type="text" name="name"/><input type="text" name="brandName"/>
 	<input type="submit" value="Search"/>
 	</form>
 	
@@ -80,7 +69,7 @@ m-5 pb-5 bg-info">
 		
 		</tr>
 		
-			<c:forEach items="${list}" var="l">
+			<c:forEach items="${name}" var="l">
 				<tr>
 					<td>${l.id}</td>
 					<td>${l.name}</td>
@@ -94,15 +83,12 @@ m-5 pb-5 bg-info">
 					<td><a href="updated?id=${l.id}">update</a> </td>
 					<td><a href="delete?id=${l.id }">Delete</a> </td>
 					
+					
 		    	</tr>
 			</c:forEach>
 	
 	</table>
 	
 	</div>
-	
-	
-	
-
 </body>
 </html>

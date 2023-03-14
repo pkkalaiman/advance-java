@@ -46,25 +46,18 @@ public class MobileController {
 		return "Mobiles";
 	}
 
-	@GetMapping("/search")
-	public String onSearch(@RequestParam int id, Model model) {
-		System.out.println("Created onSearch running for Id :" + id);
-		MobileDTO dto = this.mobileService.finById(id);
-		if (dto != null) {
-			model.addAttribute("Dto :", dto);
-		} else {
-			model.addAttribute("message", "Data Not Found");
-		}
-		return "MobileSearch";
-	}
-
 	@PostMapping("/mobile")
 	public String onMobile(MobileDTO dto, Model model) {
-		System.out.println("Created in OnMobile Controller......");
-		System.out.println(dto);
+		System.out.println("Created in OnMobile Controller......" + dto);
+
 		Set<ConstraintViolation<MobileDTO>> violation = this.mobileService.ValidaateAndSave(dto);
 		if (violation.isEmpty()) {
 			System.out.println("No Violation in Controller Go to the Successs Pagee...");
+
+			model.addAttribute("message", "Data is Saved");
+			model.addAttribute("os", os);
+			model.addAttribute("storage", storage);
+			model.addAttribute("colors", colors);
 			return "Success";
 		}
 		System.err.println("Violation in Controlle");
@@ -72,8 +65,20 @@ public class MobileController {
 		model.addAttribute("storage", storage);
 		model.addAttribute("colors", colors);
 		model.addAttribute("error", violation);
-		model.addAttribute("Validdate Dto :", dto);
+		model.addAttribute("dto", dto);
 		return "Mobiles";
+	}
+
+	@GetMapping("/search")
+	public String onSearch(@RequestParam int id, Model model) {
+		System.out.println("Created onSearch running for Id :" + id);
+		MobileDTO dto = this.mobileService.finById(id);
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("message", "Data Not Found");
+		}
+		return "MobileSearch";
 	}
 
 	@GetMapping("/searchbyname")
@@ -81,34 +86,80 @@ public class MobileController {
 
 		System.out.println("Running in onSerachByName Controller... :" + name);
 		List<MobileDTO> list = this.mobileService.findByName(name);
-		model.addAttribute("list", list);
-		model.addAttribute("error", "Name Not Macthed");
+		if (list.size() > 0) {
+			model.addAttribute("list", list);
+
+		} else {
+			model.addAttribute("error", "Name Not Macthed");
+
+		}
 		return "SearchByName";
 	}
 
-	@GetMapping("/Updated")
+	@GetMapping("/searchNameBybrandName")
+	public String onSearchNameByBrandName(@RequestParam String name, @RequestParam String brandName, Model model) {
+		System.out.println("Running in onSearchNameBybrandName Controller..." + name + " " + brandName);
+		List<MobileDTO> list = this.mobileService.findByNameByBrandName(name, brandName);
+
+		if (name != null && !name.isEmpty() || brandName != null && !brandName.isEmpty()) {
+			model.addAttribute("name", list);
+		} else {
+			List<MobileDTO> moblilstdto = this.mobileService.findByNameByBrandName(name, brandName);
+			model.addAttribute("Error", "NameAndBrandName not Matched");
+		}
+		return "SearchNameBybrandName";
+	}
+
+	@GetMapping("/updated")
 	public String onUpdate(@RequestParam int id, Model model) {
 		System.out.println("Running in onUpdated in Controller :" + id);
-		
-		MobileDTO entity = this.mobileService.finById(id);
-		System.out.println("entity :" + entity);
+
+		MobileDTO dto = this.mobileService.finById(id);
+		System.out.println("entity :" + dto);
 		model.addAttribute("os", os);
+		model.addAttribute("dto", dto);
 		model.addAttribute("storage", storage);
 		model.addAttribute("colors", colors);
 		return "Updated";
 	}
 
-	@PostMapping("/Updated")
+	@PostMapping("/updated")
 	public String onUpdate(MobileDTO dto, Model model) {
 		System.out.println("Running updated :" + dto);
 		Set<ConstraintViolation<MobileDTO>> constraintviolation = this.mobileService.ValidateAndUpdate(dto);
 
 		if (constraintviolation.size() > 0) {
 			model.addAttribute("error", constraintviolation);
+			model.addAttribute("dto", dto);
 		} else {
 			model.addAttribute("message", "Mobile Updated Successfully....");
+			model.addAttribute("dto", dto);
 		}
 		return "Updated";
+	}
+
+	@GetMapping("/delete")
+	public String onDelete(int id, Model model) {
+		System.out.println("Running in OnDelete");
+		System.out.println("Deleting :" + id);
+
+		boolean delet = this.mobileService.onDelete(id);
+
+		model.addAttribute("delete", delet);
+		model.addAttribute("message", "Data is Deleted Successfully");
+		return "SearchByName";
+	}
+
+	@GetMapping("/")
+	public String onFindAll(MobileEntity entity, Model model) {
+		System.out.println("Creating in onFindAll in Controller..." + entity);
+		List<MobileDTO> list = this.mobileService.findAll(entity);
+		if(list !=null && ! list.isEmpty()) {
+		model.addAttribute("findall", list);
+		}else {
+			model.addAttribute("message", "Data not found in DataBase");
+		}
+		return "FindAll";
 	}
 
 }

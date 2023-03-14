@@ -14,13 +14,26 @@ public interface MobileService {
 	Set<ConstraintViolation<MobileDTO>> ValidaateAndSave(MobileDTO dto);
 
 	Set<ConstraintViolation<MobileDTO>> ValidateAndUpdate(MobileDTO dto);
-	
+
 	default MobileDTO finById(int id) {
 
 		return null;
 	}
 
 	default List<MobileDTO> findByName(String name) {
+		return Collections.emptyList();
+	}
+
+	default boolean onDelete(int id) {
+		return false;
+
+	}
+
+	default List<MobileDTO> findByNameByBrandName(String name, String brandName) {
+		return Collections.emptyList();
+	}
+
+	default List<MobileDTO> findAll(MobileEntity entity) {
 		return Collections.emptyList();
 	}
 }

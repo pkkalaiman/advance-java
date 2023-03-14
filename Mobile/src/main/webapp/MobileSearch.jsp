@@ -41,7 +41,7 @@
 		</div>
 	</nav>
 	
-	<h1>Mobile Search</h1>
+	<h1 align="center" style="color:green">Mobile Search</h1>
 	
 	
 	<h3><span style='color:red'>${message}</span></h3>
@@ -51,20 +51,21 @@ m-5 pb-5 bg-info">
 	
 	Search By Id<input type="text" name="id"/>
 	<input type="submit" value="Search"/>
-	</form class="table">
+	</form>
 	
 	<div>
 	
-	<h3>Search Result: </h3>
-	ID :${dto.id}<br>
-	Name : ${dto.name}<br>
-	Brand Name: ${dto.brandName}<br>
-	Model Name : ${dto.modelName}<br>
-	Storage : ${dto.storage}<br>
-	Os : ${dto.os}<br>
-	Price :${dto.price}<br>
-	Colors :${dto.colors}<br>
-	Technology :${dto.technology}
+	<h3 align="center" style="color:green">Result Search ID: </h3>
+	
+	<h3 style="color:blue">ID :${dto.id}</h3>
+	<h3 style="color:blue">Name : ${dto.name}</h3>
+	<h3 style="color:blue">Brand Name: ${dto.brandName}</h3>
+	<h3 style="color:blue">Model Name : ${dto.modelName}</h3>
+	<h3 style="color:blue">Storage : ${dto.storage}</h3>
+	<h3 style="color:blue">Os : ${dto.os}</h3>
+	<h3 style="color:blue">Price :${dto.price}</h3>
+	<h3 style="color:blue">Colors :${dto.colors}</h3>
+	<h3 style="color:blue">Technology :${dto.technology}</h3>
 	
 	</div>
 

@@ -34,16 +34,20 @@
 
 				<form class="d-flex">
 					<a href="MobileSearch.jsp" class="form-control me-0"
-						style='color: OrangeRed'>MobileSearch</a>
+						style='color: OrangeRed'>SeearchByID</a>
 				</form>
 		</div>
 	</nav>
 	
+	<div class="container"> <div class="ticker"> <div class="title"><h5 style="color:green">Breaking News</h5></div> 
+ <div class="news"> <marquee class="news-content"> <p style="color:indigo">Welcome to P K Mani Mobile , Today i will Give Big offer For You , By One Mobile Get On Hair Phone</p> </marquee> </div> </div> </div>
+  
+	
 	<c:forEach items="${error }" var="e">
 		<span style='color: red;' ${e }>${e.getMessage()}</span>
 	</c:forEach>
-
-	<form action="Updated" method="post"
+   <span style='color:green;'>${message }</span>
+	<form action="updated" method="post"
 		class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-info">
 
@@ -53,38 +57,38 @@ m-5 pb-5 bg-info">
 			</tr>
 			
 			<tr>
-				<td style="color:green">Mobile Name</td>
-				<td><input type="text" name="id" value="${dto.getid()}"></td>
+				<td style="color:green">Id</td>
+				<td><input type="text" name="id" value="${dto.id}"></td>
 			</tr>
 
 			<tr>
 				<td style="color:green">Mobile Name</td>
-				<td><input type="text" name="name" value="${dto.getName()}"></td>
+				<td><input type="text" name="name" value="${dto.name}"></td>
 			</tr>
 
 			<tr>
 
 				<td style="color:green">Brand Name</td>
-				<td><input type="text" name="brandName" value="${dto.getBrandName}"></td>
+				<td><input type="text" name="brandName" value="${dto.brandName}"></td>
 			</tr>
 
 			<tr>
 
 				<td style="color:green">Model Name</td>
-				<td><input type="text" name="modelName" value="${dto.getModelName()}"></td>
+				<td><input type="text" name="modelName" value="${dto.modelName}"></td>
 			</tr>
 			
 			<tr>
 
 				<td style="color:green">Price</td>
-				<td><input type="text" name="price" value="${dto.getPrice()}"></td>
+				<td><input type="text" name="price" value="${dto.price}"></td>
 			</tr>
 			
 			<tr>
 
 				<td style="color:green">Os</td>
 				<td><select name="os">
-						<option value="">---Select Os-----</option>
+						<option value="${dto.os }">${dto.os }</option>
 						<c:forEach items="${os}" var="o">
 							<option value="${o}">${o}</option>
 						</c:forEach>
@@ -95,7 +99,7 @@ m-5 pb-5 bg-info">
 
 				<td style="color:green">Storage</td>
 				<td><select name="storage">
-						<option value="">----Select Storage----</option>
+						<option value="${dto.storage }">${dto.storage }</option>
 						<c:forEach items="${storage}" var="d">
 							<option value="${d}">${d}</option>
 						</c:forEach>
@@ -105,7 +109,7 @@ m-5 pb-5 bg-info">
 			<tr>
 
 				<td style="color:green">Cellular Technology</td>
-				<td><input type="text" name="technology" value="">
+				<td><input type="text" name="technology" value="${dto.technology }">
 	                
 
 			</tr>
@@ -115,7 +119,7 @@ m-5 pb-5 bg-info">
 
 				<td style="color:green">Colors</td>
 				<td><select name="colors">
-						<option value="">-----Select Color------</option>
+						<option value="${dto.colors }">${dto.colors }</option>
 						<c:forEach items="${colors}" var="c">
 							<option value="${c}">${c}</option>
 						</c:forEach>
