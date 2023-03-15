@@ -65,8 +65,11 @@
     <a class="dropdown-item" href="MobileSearch.jsp" class="form-control me-0"style='color: blue'>SearchByID</a>
     <a class="dropdown-item" href="SearchByName.jsp" class="form-control me-0"style='color: blue'>SearchByName</a>
     <a class="dropdown-item" href="Updated.jsp" class="form-control me-0"style='color: blue'>Updated Page</a>
-     <a class="dropdown-item" href="Delete.jsp" class="form-control me-0"style='color: blue'>Deleted Page</a>
-      <a class="dropdown-item" href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: blue'>SearchByNameByBrandName Page</a>
+    <a class="dropdown-item" href="Delete.jsp" class="form-control me-0"style='color: blue'>Deleted Page</a>
+    <a class="dropdown-item" href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: blue'>SearchByNameByBrandName Page</a>
+    <a class="dropdown-item" href="FindAll.jsp" class="form-control me-0"style='color: blue'>FindAll Page</a>
+    <a class="dropdown-item" href="ImageUpload.jsp" class="form-control me-0"style='color: blue'>Upload Page</a>
+    
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#"></a>
   </div>

@@ -19,13 +19,13 @@ import lombok.NoArgsConstructor;
 @NamedQuery(name = "findByNameByBrandName", query = "select ent from MobileEntity ent where ent.name=:name or ent.brandName=:brand")
 //@NamedQuery(name = "findAll", query = "select entity from MobileEntity entity where entity.id entity.name entity.brandName entity.modelName entity.storage entity.os entity.price entity.technology entity.colors=:mobil")
 
-@NamedQuery(name="findAll", query = "select from MobileEntity=:mobil")
+@NamedQuery(name="findAll", query = "select ent from MobileEntity ent")
 
 public class MobileEntity {
 
 	@Id
 	@Column(name = "m_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	@Column(name = "m_name")

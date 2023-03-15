@@ -150,14 +150,15 @@ public class MobileController {
 		return "SearchByName";
 	}
 
-	@GetMapping("/")
-	public String onFindAll(MobileEntity entity, Model model) {
-		System.out.println("Creating in onFindAll in Controller..." + entity);
-		List<MobileDTO> list = this.mobileService.findAll(entity);
-		if(list !=null && ! list.isEmpty()) {
-		model.addAttribute("findall", list);
-		}else {
-			model.addAttribute("message", "Data not found in DataBase");
+	@GetMapping("/findall")
+	public String onFindAll(Model model) {
+		System.out.println("Creating in onFindAll in Controller...");
+		List<MobileDTO> list = this.mobileService.findAll();
+		if (list != null && !list.isEmpty()) {
+			model.addAttribute("findall", list);
+		} else {
+			
+			model.addAttribute("error", "Data not found in DataBase");
 		}
 		return "FindAll";
 	}

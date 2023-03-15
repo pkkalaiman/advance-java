@@ -33,7 +33,7 @@ public interface MobileService {
 		return Collections.emptyList();
 	}
 
-	default List<MobileDTO> findAll(MobileEntity entity) {
+	default List<MobileDTO> findAll() {
 		return Collections.emptyList();
 	}
 }

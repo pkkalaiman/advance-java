@@ -216,10 +216,10 @@ public class MobileServiceIMPL implements MobileService {
 	}
 
 	@Override
-	public List<MobileDTO> findAll(MobileEntity entity) {
-		System.out.println("Created in findAll in Service :" + entity);
+	public List<MobileDTO> findAll() {
+		System.out.println("Created in findAll in Service :" );
 		
-		List<MobileEntity> moblist = this.mobileRepo.findAll(entity);
+		List<MobileEntity> moblist = this.mobileRepo.findAll();
 		List<MobileDTO> moDto=new ArrayList<MobileDTO>();
 		if (moblist != null && ! moblist.isEmpty()) {
 			System.out.println("MobileEntity is Valid in Repo..");

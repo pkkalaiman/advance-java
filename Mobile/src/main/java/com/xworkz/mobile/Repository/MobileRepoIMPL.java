@@ -144,13 +144,13 @@ public class MobileRepoIMPL implements MobileRepo {
 	}
 
 	@Override
-	public List<MobileEntity> findAll(MobileEntity entity) {
-		System.out.println("Creating in FindAll in Repository..." + entity);
+	public List<MobileEntity> findAll() {
+		System.out.println("Creating in FindAll in Repository...");
 		EntityManager manager = this.entityManagerFactory.createEntityManager();
 
 		try {
 			Query query = manager.createNamedQuery("findAll");
-			query.setParameter("mobil", query);
+			//query.setParameter("mobil", query);
 			List<MobileEntity> list = query.getResultList();
 			System.out.println("Total list in Found :" + list.size());
 			list.forEach(d -> System.out.println(d));
@@ -164,6 +164,6 @@ public class MobileRepoIMPL implements MobileRepo {
 			System.out.println("Realesing the Connection..");
 		}
 
-		return MobileRepo.super.findAll(entity);
+		return MobileRepo.super.findAll();
 	}
 }

@@ -28,7 +28,7 @@ public interface MobileRepo {
 		return Collections.emptyList();
 	}
 
-	default List<MobileEntity> findAll(MobileEntity dto) {
+	default List<MobileEntity> findAll() {
 		return Collections.emptyList();
 	}
 }

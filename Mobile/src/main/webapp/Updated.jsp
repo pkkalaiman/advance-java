@@ -34,7 +34,12 @@
 
 				<form class="d-flex">
 					<a href="MobileSearch.jsp" class="form-control me-0"
-						style='color: OrangeRed'>SeearchByID</a>
+						style='color: OrangeRed'>SeearchById</a>
+				</form>
+				
+				<form class="d-flex">
+					<a href="SearchByName.jsp" class="form-control me-0"
+						style='color: OrangeRed'>SeearchByName</a>
 				</form>
 		</div>
 	</nav>
