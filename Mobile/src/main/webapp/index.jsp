@@ -68,7 +68,8 @@
     <a class="dropdown-item" href="Delete.jsp" class="form-control me-0"style='color: blue'>Deleted Page</a>
     <a class="dropdown-item" href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: blue'>SearchByNameByBrandName Page</a>
     <a class="dropdown-item" href="FindAll.jsp" class="form-control me-0"style='color: blue'>FindAll Page</a>
-    <a class="dropdown-item" href="ImageUpload.jsp" class="form-control me-0"style='color: blue'>Upload Page</a>
+    <a class="dropdown-item" href="ImageUpload.jsp" class="form-control me-0"style='color: blue'>UploadImage Page</a>
+    <a class="dropdown-item" href="DisplayImage.jsp" class="form-control me-0"style='color: blue'>DisplayImage Page</a>
     
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#"></a>
