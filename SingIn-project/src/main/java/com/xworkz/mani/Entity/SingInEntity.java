@@ -1,8 +1,12 @@
 package com.xworkz.mani.Entity;
 
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -19,9 +23,10 @@ import lombok.Data;
 @NamedQuery(name = "updateLoginCount", query = "update SingInEntity ent set ent.loginCount=:logcount where ent.userId=:userID")
 @NamedQuery(name = "resetPassword", query = "select ent from SingInEntity ent where ent.email=:emailIdby")
 @NamedQuery(name = "user", query = "select ent from SingInEntity ent where ent.userId=:userinfo")
-@NamedQuery(name = "updatePassword", query = "update SingInEntity ent set ent.password=:userpassword , ent.resetPassword=:resetpassword where ent.userId=:uId")
+@NamedQuery(name = "updatePassword", query = "update SingInEntity ent set ent.password=:userpassword , ent.resetPassword=:resetpassword, ent.expTime=:exp where ent.userId=:uId")
 public class SingInEntity {
 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "s_id")
 	private int id;
@@ -47,5 +52,7 @@ public class SingInEntity {
 	private int loginCount;
 	@Column(name="s_resetpassword")
 	private Boolean resetPassword;
+	@Column(name="s_expTime")
+	private LocalTime expTime ;
 
 }

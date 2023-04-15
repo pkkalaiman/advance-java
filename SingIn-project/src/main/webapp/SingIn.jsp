@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>P.K.Mani</title>
 </head>
 <body>
 
@@ -39,49 +39,59 @@
 			</button>
 			<form class="d-flex">
 				<a href="index.jsp" class="form-control me-0"
-					style='color: OrangeRed'>Home Page</a>
+					style='color: OrangeRed'>Home</a>
 			</form>
 
 			<form class="d-flex">
 				<a href="SingUp.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingUp Page</a>
+					style='color: OrangeRed'>SingUp</a>
 			</form>
 
 		</div>
 	</nav>
-	
-	
+
+
 
 	<div align="center">
 		<h5 style="color: red">${notmatch}</h5>
 		<h5 style="color: red">${msg}</h5>
 
-		<form action="signin" method="post" class="container col-30 col-sm-30 col-md-5 shadow-lg p-5 mb-5 bg-white mx-auto d-block border border-primary rounded-lg 
+		<form action="signin" method="post"
+			class="container col-30 col-sm-30 col-md-5 shadow-lg p-5 mb-5 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-i  nfo">
-		
+
 			<table>
 				<tr>
 					<td>User ID</td>
 
-					<td><input type="text" name="userId" id="userName"onchange="ValideName()">
-					<span id="nameError" style="color: red"></span>
-					<span id="displayUserName" style="color: red"></span></td>
+					<td><input type="text" name="userId" id="userName"
+						onchange="ValideName()"> <span id="nameError"
+						style="color: red"></span> <span id="displayUserName"
+						style="color: red"></span></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" id="userPassword" onblur="ValidePassword()">
-						 <span id="passwordError" style="color: red"></span> 
-					<div> <input type="checkbox" onclick="myFunction()">Show Password</td></div>
+					<td><input type="password" name="password" id="userPassword"
+						onblur="ValidePassword()"> <span id="passwordError"
+						style="color: red"></span>
+						<div>
+							<input type="checkbox" onclick="myFunction()">Show
+							Password</td>
+					</div>
 				</tr>
 
 			</table>
 			<div>
 				<button type="submit" class="btn btn-success">SignIN</button>
 			</div>
+
+			<div>
+				<a href="SingUp.jsp" style="color: blue">Create New Account</a> <br>
+				<a href="resetpassword.jsp" style="color: blue">Forgot Password</a><br>
+				<a href="updatepassword.jsp" style="color: blue">Update Passsword</a>
+					
+			</div>
 		</form>
-		<a href="SingUp.jsp" style="color:red">Create New Account</a> <br> <a
-			href="resetpassword.jsp" style="color:red">Forgot Password</a><br>
-			<a href="updatepassword.jsp" style="color:red">Update Passsword</a>
 	</div>
 	<script>
 		function ValideName() {

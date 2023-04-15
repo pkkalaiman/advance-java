@@ -1,5 +1,6 @@
 package com.xworkz.mani.repository;
 
+import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public interface SingInRepo {
 
 	boolean update(SingInEntity userEntity);
 
-	boolean updatePassword(String userId, String password, Boolean resetPassword);
+	boolean updatePassword(String userId, String password, Boolean resetPassword, LocalTime expTime);
 
 	boolean logincount(String userId, int count);
 

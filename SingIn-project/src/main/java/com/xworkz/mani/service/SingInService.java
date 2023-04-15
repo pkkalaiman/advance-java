@@ -40,6 +40,6 @@ public interface SingInService {
 		return null;
 	}
 
-	boolean sendMail(String email);
+	boolean sendMail(String email,String text);
 
 }

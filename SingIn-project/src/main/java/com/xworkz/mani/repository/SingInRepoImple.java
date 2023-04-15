@@ -1,5 +1,6 @@
 package com.xworkz.mani.repository;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -21,18 +22,19 @@ public class SingInRepoImple implements SingInRepo {
 	private EntityManagerFactory entityManagerFactory;
 
 	public SingInRepoImple() {
-		log.info("" + this.getClass().getSimpleName());
+		log.info("created" + this.getClass().getSimpleName());
 	}
 
 	@Override
 	public boolean save(SingInEntity userEntity) {
+		log.info("Runnning in Save in Repository...");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
+		EntityTransaction et = em.getTransaction();
 		try {
-			EntityTransaction et = em.getTransaction();
 			et.begin();
 			em.persist(userEntity);
 			et.commit();
-			return true;
+			return false;
 		} finally {
 			em.close();
 		}
@@ -41,13 +43,14 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public SingInEntity userSignIn(String userId) {
+		log.info("Runnning in UserSingInID IN Repository..");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("user");
 			query.setParameter("userinfo", userId);
 			Object object = query.getSingleResult();
 			SingInEntity entity = (SingInEntity) object;
-			log.info("" + entity);
+			log.info("SingIn Entity :" + entity);
 			return entity;
 		} finally {
 			em.close();
@@ -57,6 +60,7 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public List<SingInEntity> findAll() {
+		log.info("Running in FindAll in Repository...");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("findAll");
@@ -70,13 +74,14 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public Long findByEmail(String email) {
+		log.info("Rinning in FindByEmail in Rpository...");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("emailId");
 			query.setParameter("emailby", email);
 			Object object = query.getSingleResult();
 			Long value = (Long) object;
-			System.out.println(value);
+			log.info("", value);
 			return value;
 
 		} finally {
@@ -87,6 +92,7 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public Long findByUser(String user) {
+		log.info("Running in FindByUser in Repsitory");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("userId");
@@ -103,13 +109,14 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public Long findByMobile(Long number) {
+		log.info("Runnning un FindByMobile in Repostiry..");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("mobileId");
 			query.setParameter("mobileBy", number);
 			Object object = query.getSingleResult();
 			Long value = (Long) object;
-			System.out.println(value);
+			log.info("", value);
 			return value;
 
 		} finally {
@@ -119,7 +126,7 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public boolean logincount(String userID, int count) {
-		log.info("count:" + count);
+		log.info("running in Logincount:" + count);
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			EntityTransaction et = em.getTransaction();
@@ -137,13 +144,14 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public SingInEntity reSetPassword(String email) {
+		log.info("Runnning in ResetPasswor in Repository...");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			Query query = em.createNamedQuery("resetPassword");
 			query.setParameter("emailIdby", email);
 			Object object = query.getSingleResult();
 			SingInEntity entity = (SingInEntity) object;
-			log.info("" + entity);
+			log.info("Saved in Entity" + entity);
 			return entity;
 		} finally {
 			em.close();
@@ -152,6 +160,7 @@ public class SingInRepoImple implements SingInRepo {
 
 	@Override
 	public boolean update(SingInEntity sinentity) {
+		log.info("Runnning in Update in Repository...");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			EntityTransaction et = em.getTransaction();
@@ -165,7 +174,8 @@ public class SingInRepoImple implements SingInRepo {
 	}
 
 	@Override
-	public boolean updatePassword(String userId, String password, Boolean resetPassword) {
+	public boolean updatePassword(String userId, String password, Boolean resetPassword, LocalTime expTime) {
+		log.info("Runnning in UpdatePassword in Rposiry....");
 		EntityManager em = this.entityManagerFactory.createEntityManager();
 		try {
 			EntityTransaction et = em.getTransaction();
@@ -174,6 +184,7 @@ public class SingInRepoImple implements SingInRepo {
 			query.setParameter("uId", userId);
 			query.setParameter("userpassword", password);
 			query.setParameter("resetpassword", resetPassword);
+			query.setParameter("exp", expTime);
 			query.executeUpdate();
 			et.commit();
 			return true;

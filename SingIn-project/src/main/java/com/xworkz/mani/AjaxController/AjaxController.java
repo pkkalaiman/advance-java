@@ -23,32 +23,32 @@ public class AjaxController {
 	private SingInService singInService;
 
 	public AjaxController() {
-		log.info("" + this.getClass().getSimpleName());
+		log.info("Created in No orgs Constructor" + this.getClass().getSimpleName());
 	}
 
 	@GetMapping(value = "/email/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onEmail(@PathVariable String email) {
 		Long dbEmail = this.singInService.findByEmail(email);
-		System.err.println(dbEmail);
+		log.error("", dbEmail);
 
 		if (dbEmail == 0) {
-			System.err.println("Running in equals condition");
+
 			return "";
 		} else {
-			return "Email id exsist";
+			return "EmailId exsist";
 		}
 	}
 
 	@GetMapping(value = "/userName/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onUser(@PathVariable String user) {
 		Long dbUser = this.singInService.findByUser(user);
-		System.err.println(dbUser);
-
+		log.error("", dbUser);
 		if (dbUser == 0) {
-			System.err.println("Running in equals condition");
+			log.error("User Not Found in DB");
 			return "";
 
 		} else {
+			log.error("User Found in DB");
 			return "UserID exsist";
 		}
 	}
@@ -56,14 +56,13 @@ public class AjaxController {
 	@GetMapping(value = "/mobile/{number}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onMobile(@PathVariable Long number) {
 		Long dbNumber = this.singInService.findByMobile(number);
-		System.err.println(dbNumber);
-
+		log.error("" + dbNumber);
 		if (dbNumber == 0) {
-			System.err.println("Running in equals condition");
+			log.error("Running in equals condition");
 			return "";
 
 		} else {
-			return "Mobile Number exsist";
+			return "MobileNumber exsist";
 		}
 	}
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>P.K.Mani</title>
 </head>
 <body>
 
@@ -36,11 +36,11 @@
 			</button>
 			
 			<form class="d-flex">
-					<a href="SingUp.jsp" class="form-control me-0"style='color: OrangeRed'>SingUp Page</a>
+					<a href="SingUp.jsp" class="form-control me-0"style='color: OrangeRed'>SingUp</a>
 				</form>
 
               <form class="d-flex">
-					<a href="SingIn.jsp" class="form-control me-0"style='color: OrangeRed'>SingIn Page</a>
+					<a href="SingIn.jsp" class="form-control me-0"style='color: OrangeRed'>SingIn</a>
 				</form>
 		</div>
 	</nav>
@@ -76,7 +76,7 @@ h1 {
 
 </style>
 <div>
-<h1 align="center" style="color:blue;">Welcome to P K Mani</h1>
+<h1 align="center" style="color:blue;" >Welcome to P K Mani</h1>
 <p>&#128512;</p>
 </div>
 

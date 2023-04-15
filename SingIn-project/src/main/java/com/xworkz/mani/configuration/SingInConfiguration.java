@@ -12,7 +12,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration
@@ -32,6 +31,7 @@ public class SingInConfiguration {
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
+		log.info("Runnning in LocalContainerEntityManagerFactoryBean...");
 		LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
 		bean.setPackagesToScan("com.xworkz.mani.Entity");
 		bean.setDataSource(dataSource());
@@ -48,7 +48,6 @@ public class SingInConfiguration {
 		return datasource;
 	}
 	
-
 	@Bean
 	public PasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
