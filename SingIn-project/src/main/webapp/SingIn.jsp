@@ -17,9 +17,9 @@
 
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 		crossorigin="anonymous">
+		
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
@@ -37,16 +37,18 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<form class="d-flex">
+			<!-- <form class="d-flex">
 				<a href="index.jsp" class="form-control me-0"
 					style='color: OrangeRed'>Home</a>
-			</form>
+			</form> -->
 
-			<form class="d-flex">
+			<!-- <form class="d-flex">
 				<a href="SingUp.jsp" class="form-control me-0"
 					style='color: OrangeRed'>SingUp</a>
-			</form>
-
+			</form> -->
+			
+			<a href="SingUp.jsp" class="btn btn-primary"> SingUp</a>
+            <a href="index.jsp" class="btn btn-primary">Home</a>
 		</div>
 	</nav>
 
@@ -55,6 +57,7 @@
 	<div align="center">
 		<h5 style="color: red">${notmatch}</h5>
 		<h5 style="color: red">${msg}</h5>
+		<h5 style="color:red">${Timeout}</h5>
 
 		<form action="signin" method="post"
 			class="container col-30 col-sm-30 col-md-5 shadow-lg p-5 mb-5 bg-white mx-auto d-block border border-primary rounded-lg 
@@ -64,20 +67,17 @@ m-5 pb-5 bg-i  nfo">
 				<tr>
 					<td>User ID</td>
 
-					<td><input type="text" name="userId" id="userName"
-						onchange="ValideName()"> <span id="nameError"
-						style="color: red"></span> <span id="displayUserName"
-						style="color: red"></span></td>
+					<td><input type="text" name="userId" id="userName" onchange="ValideName()" placeholder="User-Id"> 
+					<span id="nameError" style="color: red"></span> 
+					<span id="displayUserName" style="color: red"></span></td>
+						
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" id="userPassword"
-						onblur="ValidePassword()"> <span id="passwordError"
-						style="color: red"></span>
-						<div>
-							<input type="checkbox" onclick="myFunction()">Show
-							Password</td>
-					</div>
+					<td><input type="password" name="password" id="userPassword" onblur="ValidePassword()" placeholder="Password">
+						 <span id="passwordError" style="color: red"></span>
+						 <input type="checkbox" onclick="myFunction()">Show Password
+					  </td>
 				</tr>
 
 			</table>
@@ -88,7 +88,7 @@ m-5 pb-5 bg-i  nfo">
 			<div>
 				<a href="SingUp.jsp" style="color: blue">Create New Account</a> <br>
 				<a href="resetpassword.jsp" style="color: blue">Forgot Password</a><br>
-				<a href="updatepassword.jsp" style="color: blue">Update Passsword</a>
+				  <a href="updatepassword.jsp" style="color: blue">Update Passsword</a>
 					
 			</div>
 		</form>

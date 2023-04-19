@@ -28,6 +28,7 @@ public class AjaxController {
 
 	@GetMapping(value = "/email/{email}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onEmail(@PathVariable String email) {
+		
 		Long dbEmail = this.singInService.findByEmail(email);
 		log.error("", dbEmail);
 
@@ -41,6 +42,7 @@ public class AjaxController {
 
 	@GetMapping(value = "/userName/{user}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onUser(@PathVariable String user) {
+		
 		Long dbUser = this.singInService.findByUser(user);
 		log.error("", dbUser);
 		if (dbUser == 0) {
@@ -55,6 +57,7 @@ public class AjaxController {
 
 	@GetMapping(value = "/mobile/{number}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public String onMobile(@PathVariable Long number) {
+		
 		Long dbNumber = this.singInService.findByMobile(number);
 		log.error("" + dbNumber);
 		if (dbNumber == 0) {

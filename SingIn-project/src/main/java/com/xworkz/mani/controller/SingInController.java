@@ -1,9 +1,11 @@
 package com.xworkz.mani.controller;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
 
@@ -48,41 +50,46 @@ public class SingInController {
 	}
 
 	@PostMapping("/signin")
-	public String userSignIn(String userId, String password, Model model, HttpServletRequest request) {
+	public String userSignIn(String userId, String password, Model model, HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		log.info("Running in SingIn in Controller..");
 		try {
 			SingInDTO udto = this.singInService.userSignIn(userId, password);
-			log.info("Login count" + udto.getLoginCount());
+			log.info("Login DTO" + udto.getLoginCount());
+
 			if (udto.getLoginCount() >= 3) {
 				model.addAttribute("msg", "Account locked Reset password");
-				log.info("Account Locked after 3 attempts wrong Credential ");
+				log.info("Account Locked after 3 attempts wrong Password ");
 				return "SingIn";
 			}
 			if (udto != null) {
 
 				if (udto.getResetPassword() == true) {
+					log.info("Running in resetasword true condition");
 					if (!udto.getExpTime().isAfter(LocalTime.now())) {
+						log.info("Running in time verificatrtrion condition");
 						model.addAttribute("Timeout", "Password Expired try again new");
 						return "SingIn";
 					}
 					model.addAttribute("userID", udto.getUserId());
-					log.info("Running innreset conditions");
+					log.info("Running in reset conditions");
 					log.info("reset password :" + udto.getResetPassword());
 					log.info("Timer :" + udto.getExpTime().isBefore(LocalTime.now()));
-					return "updatePassword";
+					return "updatepassword";
 				}
 				log.info("User ID and password is matched");
-				model.addAttribute("userID", udto.getUserId());
+				// model.addAttribute("userID", udto.getUserId());
 				HttpSession session = request.getSession(true);
-				session.setAttribute(userId, udto.getUserId());
+				session.setAttribute("userId", udto.getUserId());
+				session.setAttribute("uDto", udto);
 				return "SingInSuccess";
 			}
 
 		} catch (Exception e) {
 			log.info(e.getMessage());
 		}
-
-		model.addAttribute("notmatch", "UserID OR Password is not matching");
+		log.info("UserId or password is not machethed");
+		model.addAttribute("notmatch", "UserID or Password is Incorrect");
 		return "SingIn";
 
 	}
@@ -93,7 +100,8 @@ public class SingInController {
 		try {
 			SingInDTO udto = this.singInService.reSetPassword(email);
 			if (udto.getResetPassword() == true) {
-				model.addAttribute("msg", "Password reset sucessfull login");
+				log.info("Peaasowrd reset successfully pls login within 2 minutes OTP");
+				model.addAttribute("msg", "Password reset sucessfull login within 2 minutes OTP");
 				return "resetpassword";
 			}
 		} catch (Exception e) {
@@ -109,16 +117,4 @@ public class SingInController {
 		model.addAttribute("dto", userId);
 		return "updateSuccess";
 	}
-
-	/*
-	 * @RequestMapping("/send-otp-sms") public String sendOtpSms() { String
-	 * fromNumber = "+1234567890"; // Twilio phone number String toNumber =
-	 * "+1234567890"; // recipient's phone number String message =
-	 * "Your OTP is 1234"; // replace with your OTP message Message sms = new
-	 * Message.Builder().body(message).from(new PhoneNumber(fromNumber)).to(new
-	 * PhoneNumber(toNumber)).build(); try {
-	 * twilioRestClient.messages().create(sms); return "OTP SMS sent successfully";
-	 * } catch (TwilioRestException e) { e.printStackTrace(); return
-	 * "Failed to send OTP SMS"; } }
-	 */
 }

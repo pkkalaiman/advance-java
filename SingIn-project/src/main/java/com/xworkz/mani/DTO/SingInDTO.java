@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SingInDTO extends AbstractAudit {
+public class SingInDTO {
 
 	@NotNull
 	private int id;

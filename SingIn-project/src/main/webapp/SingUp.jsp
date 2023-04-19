@@ -37,16 +37,11 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-			<form class="d-flex">
-				<a href="index.jsp" class="form-control me-0"
-					style='color: OrangeRed'>Home</a>
-			</form>
-
-			<form class="d-flex">
-				<a href="SingIn.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingIn</a>
-			</form>
+			
+			
+ 					<a href="SingIn.jsp" class="btn btn-primary"> SingIn</a>
+ 					<a href="index.jsp" class="btn btn-primary">Home</a>
+			
 		</div>
 	</nav>
 
@@ -86,13 +81,14 @@ h1 {
 		<form action="detials" method="post"
 			class="container col-20 col-sm-8 col-md-5 shadow-lg p-5 mb-5 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-i  nfo">
+		<!-- <h1 style="color:blue">Created a New Account</h1> -->
 
 			<table>
 				<tr>
 					<td>User ID</td>
 
 					<td><input type="text" name="userId" id="userName"
-						onchange="ValideName()"> <span id="nameError"
+						onchange="ValideName()" placeholder="Name"> <span id="nameError"
 						style="color: red"></span> <span id="displayUserName"
 						style="color: red"></span></td>
 				</tr>
@@ -100,14 +96,14 @@ m-5 pb-5 bg-i  nfo">
 				<tr>
 					<td>Email</td>
 					<td><input type="email" name="email" id="emailId"
-						onchange="valideEmail()"> <span id="emailError"
+						onchange="valideEmail()" placeholder="E-mail"> <span id="emailError"
 						style="color: red"></span> <span id="display" style="color: red"></span></td>
 				</tr>
 
 				<tr>
 					<td>Mobile Number</td>
 					<td><input type="number" name="mobile" id="userMobile"
-						onchange="ValideMobile()"> <span id="mobileError"
+						onchange="ValideMobile()" placeholder="Mobile No"> <span id="mobileError"
 						style="color: red"></span> <span id="displayUserMobile"
 						style="color: red"></span></td>
 				</tr>
@@ -115,14 +111,14 @@ m-5 pb-5 bg-i  nfo">
 
 				<tr>
 					<td>Password</td>
-					<td><input type="password" name="password" id="userPassword">
+					<td><input type="password" name="password" id="userPassword" placeholder="Password">
 						<span id="passwordError" style="color: red"></span> <input
 						type="checkbox" onclick="myFunction1()">Show Password</td>
 				</tr>
 
 				<tr>
 					<td>ConfirmPassword</td>
-					<td><input type="password" name="confirmPassword" id="userConfirmPassword" onblur="ValidePassword()">
+					<td><input type="password" name="confirmPassword" id="userConfirmPassword" onblur="ValidePassword()" placeholder="Confirm Password">
 					<span id="passwordCompare" style="color: red"></span></td>
 				</tr>
 
@@ -161,7 +157,7 @@ m-5 pb-5 bg-i  nfo">
 			var user = document.getElementById('userName');
 			var uservalue = user.value;
 			console.log(uservalue);
-			if (uservalue != null && uservalue != "" && uservalue.length > 3
+			if (uservalue != null && uservalue != "" && uservalue.length > 4
 					&& uservalue.length < 30) {
 				console.log('valide name');
 				const xhttp = new XMLHttpRequest();

@@ -1,12 +1,11 @@
 package com.xworkz.mani.DTO;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.Data;
 
 @Data
-public class AbstractAudit implements Serializable {
+public class AbstractAudit {
 
 	private String createdBy;
 	private LocalDateTime createdDate;

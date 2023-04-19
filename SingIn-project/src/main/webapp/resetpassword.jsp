@@ -39,21 +39,11 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<form class="d-flex">
-				<a href="SingUp.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingUp</a>
-			</form>
+
+			 					<a href="SingIn.jsp" class="btn btn-primary"> SingIn</a>
+			 					<a href="SingUp.jsp" class="btn btn-primary"> SingUp</a>
+			 					<a href="index.jsp" class="btn btn-primary"> Home</a>
 			
-			<form class="d-flex">
-				<a href="index.jsp" class="form-control me-0"
-					style='color: OrangeRed'>Home</a>
-			</form>
-
-			<form class="d-flex">
-				<a href="SingIn.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingIn</a>
-			</form>
-
 		</div>
 	</nav>
 
@@ -62,8 +52,7 @@
 m-5 pb-5 bg-i  nfo">
 		
 			User Email <br> <input type="email" name="email" id="emailId"
-				onchange="valideEmail()"> <br> <span id="display"
-				style="color: red"></span> <br>
+				onchange="valideEmail()" placeholder="E-mail"> <br> 
 			<button type="submit" class="btn btn-success">Re-Set</button>
 		</form>
 		<div>
@@ -80,17 +69,6 @@ m-5 pb-5 bg-i  nfo">
 			if (userEmailvalue != null && userEmailvalue != ""
 					&& userEmailvalue.length > 4 && userEmailvalue.length < 40) {
 				console.log('valide email');
-				const xhttp = new XMLHttpRequest();
-				console.log('Running in ajax');
-				console.log(userEmailvalue);
-				xhttp.open("GET",
-						"http://localhost:8080/SingIn-project/reemail/"
-								+ userEmailvalue);
-				xhttp.send();
-				xhttp.onload = function() {
-					console.log(this);
-					document.getElementById("display").innerHTML = this.responseText
-				}
 				document.getElementById('emailError').innerHTML = '';
 			} else {
 				console.log('invalide email');
@@ -98,6 +76,5 @@ m-5 pb-5 bg-i  nfo">
 			}
 		}
 	</script>
-
 </body>
 </html>

@@ -34,14 +34,9 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			
-			<form class="d-flex">
-					<a href="SingUp.jsp" class="form-control me-0"style='color: OrangeRed'>SingUp</a>
-				</form>
-
-              <form class="d-flex">
-					<a href="SingIn.jsp" class="form-control me-0"style='color: OrangeRed'>SingIn</a>
-				</form>
+				
+				<a href="SingIn.jsp" class="btn btn-primary"> SingIn</a>
+				<a href="SingUp.jsp" class="btn btn-primary"> SingUp</a>
 		</div>
 	</nav>
 	

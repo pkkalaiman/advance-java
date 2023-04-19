@@ -50,6 +50,7 @@ public class SingInConfiguration {
 	
 	@Bean
 	public PasswordEncoder encoder() {
+		log.info("Created in PasswordEncoder in Configuration...");
 		return new BCryptPasswordEncoder();
 	}
 

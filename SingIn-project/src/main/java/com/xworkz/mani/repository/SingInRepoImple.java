@@ -132,8 +132,8 @@ public class SingInRepoImple implements SingInRepo {
 			EntityTransaction et = em.getTransaction();
 			et.begin();
 			Query query = em.createNamedQuery("updateLoginCount");
-			query.setParameter("userID", userID);
 			query.setParameter("logcount", count);
+			query.setParameter("userID", userID);
 			query.executeUpdate();
 			et.commit();
 			return true;
