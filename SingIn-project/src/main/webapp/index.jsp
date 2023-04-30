@@ -37,7 +37,8 @@
 				
 				<a href="SingIn.jsp" class="btn btn-primary"> SingIn</a>
 				<a href="SingUp.jsp" class="btn btn-primary"> SingUp</a>
-		</div>
+<!-- 				<a href="SingInSuccess.jsp" class="btn btn-primary">SingInSuccess</a>
+ -->		</div>
 	</nav>
 	
 	<style type="text/css">

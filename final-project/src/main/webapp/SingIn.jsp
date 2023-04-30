@@ -33,6 +33,10 @@
 				<a href="index.jsp" class="form-control me-0"
 					style='color: OrangeRed'>Home</a>
 			</form>
+			<form class="d-flex">
+				<a href="SingUp.jsp" class="form-control me-0"
+					style='color: OrangeRed'>SingUp</a>
+			</form>
 		</div>
 
 	</nav>

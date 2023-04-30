@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class SingUpDTO extends AbstractAutiDTO {
+public class SingUpDTO {
 
 	private int id;
 

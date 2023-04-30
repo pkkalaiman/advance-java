@@ -1,5 +1,6 @@
 package com.xworkz.mani.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -27,8 +28,8 @@ public class SingUpRepositoryImple implements SingUpRepository {
 	@Override
 	public boolean Save(SingUpEntity entity) {
 		log.info("Created in Save in Repository....");
-		// entity.setCreatedBy(entity.getUserId());
-		// entity.setCreatedDate(LocalDateTime.now());
+		entity.setCreatedBy(entity.getUserId());
+		entity.setCreatedDate(LocalDateTime.now());
 		EntityManager entitymanager = this.entityManagerFactory.createEntityManager();
 		try {
 			EntityTransaction transection = entitymanager.getTransaction();
@@ -41,6 +42,22 @@ public class SingUpRepositoryImple implements SingUpRepository {
 			entitymanager.close();
 		}
 
+	}
+
+	@Override
+	public SingUpEntity userSingIn(String userId) {
+		log.info("Created by userSingIn in RepoImple");
+		EntityManager manager = this.entityManagerFactory.createEntityManager();
+		try {
+			Query query = manager.createNamedQuery("");
+			query.setParameter("", userId);
+			Object object = query.getSingleResult();
+			SingUpEntity entity = (SingUpEntity) object;
+			log.info("SingInEntity :" + entity);
+			return entity;
+		} finally {
+			manager.close();
+		}
 	}
 
 	@Override
@@ -103,26 +120,12 @@ public class SingUpRepositoryImple implements SingUpRepository {
 			em.close();
 		}
 	}
-
+	
 	@Override
-	public SingUpEntity findByIdAndPassword(String userId) {
-
-		log.info("Search By Place in Repo");
-
-		EntityManager manager = this.entityManagerFactory.createEntityManager();
-
-		try {
-
-			Query query = manager.createNamedQuery("SearchByuserIdAndPassword");
-			query.setParameter("userId", userId);
-			Object object = query.getSingleResult();
-
-			SingUpEntity entity = (SingUpEntity) object;
-			log.info("" + entity);
-			return entity;
-		} finally {
-			manager.close();
-		}
-
+	public SingUpEntity resetPassword(String email) {
+		
+		
+		return SingUpRepository.super.resetPassword(email);
 	}
+
 }

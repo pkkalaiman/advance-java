@@ -29,7 +29,9 @@ import org.springframework.stereotype.Service;
 
 import com.xworkz.mani.DTO.SingInDTO;
 import com.xworkz.mani.Entity.SingInEntity;
+import com.xworkz.mani.Entity.TechnologyEntity;
 import com.xworkz.mani.repository.SingInRepo;
+
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -67,8 +69,9 @@ public class SingInServiceImple implements SingInService {
 		log.error("mobileCount = " + mobileCount);
 
 		Set<ConstraintViolation<SingInDTO>> violations = validate(userDTO);
+	
 		if (violations != null && !violations.isEmpty()) {
-			log.info("there is Violation in dto");
+			log.info("there is Violation in dto"+userDTO);
 			return violations;
 		}
 		if (!userDTO.getPassword().equals(userDTO.getConfirmPassword())) {
@@ -176,7 +179,10 @@ public class SingInServiceImple implements SingInService {
 	public SingInDTO updatePassword(String userId, String password, String confirmPassword) {
 		log.info("Createt in UpdatePassword");
 
+		log.info("passsword -" + password, confirmPassword);
+
 		if (password.equals(confirmPassword)) {
+			log.info("password  " + password);
 
 			boolean passwordUpdated = this.singinrepo.updatePassword(userId, passwordEncoder.encode(password), false,
 					LocalTime.of(0, 0, 0));
@@ -189,7 +195,7 @@ public class SingInServiceImple implements SingInService {
 	public boolean sendMail(String email, String text) {
 		log.info("Runnning in SendEmail in Servicee...");
 
-		String portNumber = "587";// 587
+		String portNumber = "587";
 		String hostName = "smtp.office365.com";
 		String fromEmail = "maniit1234@outlook.com";
 		String password = "manimani@123";
@@ -217,6 +223,7 @@ public class SingInServiceImple implements SingInService {
 			message.setText("Thanks for registration and your password is" + text);
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(email1));
 			Transport.send(message);
+			log.info("Sending Message to" + to);
 
 			log.info("mail sent sucessfully");
 
@@ -228,15 +235,15 @@ public class SingInServiceImple implements SingInService {
 
 	@Override
 	public SingInDTO reSetPassword(String email) {
-		log.info("ReSetd password " + reSetPassword);
 
-		String resetPasword = DefaultPasswordGenerator.generate(6);
+		String resetpwd = DefaultPasswordGenerator.generate(6);
 		SingInEntity entity = this.singinrepo.reSetPassword(email);
+		// log.info("ReSetd password--- " + resetpwd);
 
 		if (entity != null) {
 			log.info("entity found for email" + email);
 
-			entity.setPassword(passwordEncoder.encode(reSetPassword));
+			entity.setPassword(passwordEncoder.encode(resetpwd));
 			entity.setUpdatedBy("System");
 			entity.setUpdatedDate(LocalDateTime.now());
 			entity.setLoginCount(0);
@@ -247,7 +254,8 @@ public class SingInServiceImple implements SingInService {
 
 			if (update) {
 				sendMail(entity.getEmail(),
-						"your Reset Password is-> :" + resetPasword + " " + "Log in within 2 minutes before expireing");
+						"your Reset Password is-> :" + resetpwd + " " + "Log in within 2 minutes before expireing");
+				log.info("resetpwd-  " + resetpwd);
 			}
 			log.info("Updated " + update);
 
@@ -260,6 +268,53 @@ public class SingInServiceImple implements SingInService {
 
 		return SingInService.super.reSetPassword(email);
 	}
+
+
+	@Override
+	public SingInDTO updateProfile(String userId, String email, Long mobile, String imagePath) {
+		log.info("Running in updated Profile in Serviceee....");
+
+		SingInEntity sinentity = this.singinrepo.reSetPassword(email);
+
+		log.info("userId :" + userId + "email :" + email + "mobile :" + mobile + "image name :" + imagePath);
+
+		sinentity.setUserId(userId);
+		sinentity.setMobile(mobile);
+		sinentity.setPicName(imagePath);
+		boolean update = this.singinrepo.update(sinentity);
+		log.info("userudate" + update);
+
+		return SingInService.super.updateProfile(userId, email, mobile, imagePath);
+	}
+
+	@Override
+	public SingInDTO addTechnology(String userId, TechnologyEntity technologyEntity) {
+
+		log.info("Running addTechnology in service impl");
+
+		SingInEntity singInEntity = this.singinrepo.userSignIn(userId);
+		technologyEntity.setCreatedBy(userId);
+		technologyEntity.setSingInEntity(singInEntity);
+		log.info("accessing entity" + singInEntity);
+
+		boolean saved = this.singinrepo.saveTechnology(technologyEntity);
+		log.info("Technologies saved in database" + saved);
+
+		return SingInService.super.addTechnology(userId, technologyEntity);
+	}
+
+	@Override
+	public List<TechnologyEntity> viewTechnology(String userId) {
+		log.info("Running view Technology in service imple");
+
+		SingInEntity signUpEntity = this.singinrepo.userSignIn(userId);
+		List<TechnologyEntity> technology = signUpEntity.getTechnology();
+		log.info("Getting technologies as per userId : " + userId + " -> " + technology);
+
+		return technology;
+	}
+	
+	
 
 	public final static class DefaultPasswordGenerator {
 		private static final String[] charCategories = new String[] { "abcdefghijklmnopqrstuvwxyz",

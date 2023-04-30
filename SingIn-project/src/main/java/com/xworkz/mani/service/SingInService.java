@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 
 import com.xworkz.mani.DTO.SingInDTO;
+import com.xworkz.mani.Entity.TechnologyEntity;
 
 public interface SingInService {
 
@@ -40,6 +41,17 @@ public interface SingInService {
 		return null;
 	}
 
-	boolean sendMail(String email,String text);
+	boolean sendMail(String email, String text);
 
+	default SingInDTO updateProfile(String userId, String email, Long mobile, String imagePath) {
+		return null;
+	}
+
+	default SingInDTO addTechnology(String userId, TechnologyEntity entity) {
+		return null;
+	}
+
+	default List<TechnologyEntity> viewTechnology(String userId) {
+		return null;
+	}
 }

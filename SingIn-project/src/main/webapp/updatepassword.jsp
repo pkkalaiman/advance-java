@@ -47,7 +47,7 @@
 		</div>
 	</nav>
 
-	<div align="center">User Name:${userId.userID}</div>
+	<div align="center">User Name:${userID}</div>
 	<div align="center">
 		<form action="passwordUpdate" method="post" class="container col-20 col-sm-8 col-md-5 shadow-lg p-5 mb-5 bg-white mx-auto d-block border border-primary rounded-lg 
 m-5 pb-5 bg-i  nfo">
@@ -56,8 +56,7 @@ m-5 pb-5 bg-i  nfo">
 				<tr>
 					<td>User ID</td>
 
-					<td><input type="text" name="userId" value="${uDto.userId}"
-						readonly="readonly"></td>
+					<td><input type="text" name="userId" value="${userID}"></td>
 				</tr>
 				<tr>
 					<td>New Password</td>

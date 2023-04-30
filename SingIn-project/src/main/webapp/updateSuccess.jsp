@@ -40,16 +40,16 @@
 
 			<form class="d-flex">
 				<a href="SingUp.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingUp</a>
+					style='color: blue'>SingUp</a>
 			</form>
 
 			<form class="d-flex">
 				<a href="SingIn.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingIn</a>
+					style='color: blue'>SingIn</a>
 			</form>
 		</div>
 	</nav>
 
-	<h1>Updated Successfully....</h1>
+	<h1>Welcome Mstr(or)Mss ${userId}</h1>
 </body>
 </html>

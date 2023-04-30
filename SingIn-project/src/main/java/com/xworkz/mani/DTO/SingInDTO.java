@@ -46,5 +46,7 @@ public class SingInDTO {
 	private Boolean resetPassword;
 
 	private LocalTime expTime;
+	
+	private String picName;
 
 }

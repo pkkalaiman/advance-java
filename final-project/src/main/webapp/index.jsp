@@ -39,11 +39,11 @@
 			</button>
 			
 			<form class="d-flex">
-					<a href="SingUp.jsp" class="form-control me-0"style='color: OrangeRed'>SingUp Page</a>
+					<a href="SingUp.jsp" class="form-control me-0"style='color: OrangeRed'>SingUp</a>
 				</form>
 
               <form class="d-flex">
-					<a href="SingIn.jsp" class="form-control me-0"style='color: OrangeRed'>SingIn Page</a>
+					<a href="SingIn.jsp" class="form-control me-0"style='color: OrangeRed'>SingIn</a>
 				</form>
 
 			

@@ -37,15 +37,7 @@
 				aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<!-- <form class="d-flex">
-				<a href="index.jsp" class="form-control me-0"
-					style='color: OrangeRed'>Home</a>
-			</form> -->
 
-			<!-- <form class="d-flex">
-				<a href="SingUp.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingUp</a>
-			</form> -->
 			
 			<a href="SingUp.jsp" class="btn btn-primary"> SingUp</a>
             <a href="index.jsp" class="btn btn-primary">Home</a>
@@ -88,8 +80,8 @@ m-5 pb-5 bg-i  nfo">
 			<div>
 				<a href="SingUp.jsp" style="color: blue">Create New Account</a> <br>
 				<a href="resetpassword.jsp" style="color: blue">Forgot Password</a><br>
-				  <a href="updatepassword.jsp" style="color: blue">Update Passsword</a>
-					
+<!-- 				  <a href="updatepassword.jsp" style="color: blue">Update Passsword</a>
+ -->					
 			</div>
 		</form>
 	</div>

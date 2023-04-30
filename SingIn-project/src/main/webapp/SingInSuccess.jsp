@@ -39,14 +39,19 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<form class="d-flex">
-				<a href="SingIn.jsp" class="form-control me-0"
-					style='color: OrangeRed'>SingIn</a>
-			</form>
+			<a href="SingIn.jsp" class="btn btn-primary">SingIn</a>
+			
+			<span style="color: white;">Welcome:${userID}</span>
+				<img src="download?fileName=${dtoPic}" height="50" width="80">
 		</div>
 	</nav>
+	
+	<a href="UpdateProfile.jsp" class="btn btn-warning"> Update Profile </a>
+	<a href="AddTechnology.jsp" class="btn btn-warning"> Add Technology </a>
+	<a href="viewTech?userId=${userID}" class="btn btn-warning" > View Technology </a>
+	
 
-	<h1>SingIn Successfully.....</h1>
+	<h1>Welcome Mstr(or)Miss ${userID}</h1>
 
 </body>
 </html>

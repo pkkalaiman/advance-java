@@ -9,6 +9,10 @@ public interface SingUpRepository {
 
 	boolean Save(SingUpEntity entity);
 
+	default SingUpEntity userSingIn(String userId) {
+		return null;
+	}
+	
 	default List<SingUpEntity> findAll() {
 		return Collections.emptyList();
 	}
@@ -25,10 +29,8 @@ public interface SingUpRepository {
 		return null;
 	}
 
-	default SingUpEntity findByIdAndPassword(String userId) {
+	default SingUpEntity resetPassword(String email) {
 		return null;
 	}
-
-
 
 }

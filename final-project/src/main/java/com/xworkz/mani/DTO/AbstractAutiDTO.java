@@ -1,6 +1,5 @@
 package com.xworkz.mani.DTO;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -8,7 +7,7 @@ import javax.persistence.Column;
 import lombok.Data;
 
 @Data
-public class AbstractAutiDTO implements Serializable {
+public class AbstractAutiDTO {
 
 	@Column(name = "createdBy")
 	private String createdBy;

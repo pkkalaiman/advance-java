@@ -40,7 +40,7 @@ public class SingUpConfiguration {
 	}
 
 	public DataSource datasource() {
-
+		log.info("Created in DataSource.....");
 		DriverManagerDataSource datasource = new DriverManagerDataSource();
 
 		datasource.setDriverClassName("com.mysql.cj.jdbc.Driver");
