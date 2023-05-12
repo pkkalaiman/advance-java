@@ -21,54 +21,54 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@Table(name = "add.m_technology")
+@Table(name = "add.t_technology")
 public class TechnologyEntity {
 
 	@Id
-	@Column(name = "m_id")
+	@Column(name = "a_id")
 	private int id;
 
-	@Column(name = "m_technology")
+	@Column(name = "a_technology")
 	private String technologyName;
 
-	@Column(name = "m_language")
+	@Column(name = "a_language")
 	private String languange;
 
-	@Column(name = "m_version")
+	@Column(name = "a_version")
 	private Double version;
 
-	@Column(name = "m_owner")
+	@Column(name = "a_owner")
 	private String owner;
 
-	@Column(name = "m_supportForm")
+	@Column(name = "a_supportForm")
 	private String supportFrom;
 
-	@Column(name = "m_supportTo")
+	@Column(name = "a_supportTo")
 	private String supportTo;
 
-	@Column(name = "m_licenseNo")
+	@Column(name = "a_licenseNo")
 	private String licenseNo;
 
-	@Column(name = "m_openSource")
+	@Column(name = "a_openSource")
 	private String openSource;
 
-	@Column(name = "m_osType")
+	@Column(name = "a_osType")
 	private String osType;
 
-	@Column(name = "m_createdBy")
+	@Column(name = "a_createdBy")
 	private String createdBy;
 	
-	@Column(name = "m_createdDate")
+	@Column(name = "a_createdDate")
 	private LocalDateTime createdDate;
 
-	@Column(name = "m_updatedBy")
+	@Column(name = "a_updatedBy")
 	private String updatedBy;
 
-	@Column(name = "m_updatedDate")
+	@Column(name = "a_updatedDate")
 	private LocalDateTime updatedDate;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "s_userId", referencedColumnName = "s_userId")
+	@JoinColumn(name = "s_id", referencedColumnName = "s_id")
 	private SingInEntity singInEntity;
 
 }

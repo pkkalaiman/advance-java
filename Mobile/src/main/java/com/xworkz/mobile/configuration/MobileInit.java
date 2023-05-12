@@ -47,7 +47,6 @@ public class MobileInit extends AbstractAnnotationConfigDispatcherServletInitial
 		File uploadDirectry = new File(temDir);
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectry.getAbsolutePath(),
 				maxUploadedImb, maxUploadedImb * 2, maxUploadedImb / 2);
-
 		registration.setMultipartConfig(multipartConfigElement);
 	}
 

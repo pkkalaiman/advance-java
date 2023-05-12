@@ -24,7 +24,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="60" height="50">
+				alt="" width="60" height="50"></a>
 
 
 				<form class="d-flex">
@@ -36,7 +36,7 @@
 
 
 <c:forEach items="${error}" var="e">
-	<span style='color: red;'>${e.message}</span>
+	<option style='color: red;' value="${e.message}">${e.message}</option>
 </c:forEach>
 
 <form action="mobile" method="post"

@@ -64,36 +64,18 @@
     <a class="dropdown-item" href="mobile" class="form-control me-0"style='color: blue'>Mobile</a>
     <a class="dropdown-item" href="MobileSearch.jsp" class="form-control me-0"style='color: blue'>SearchByID</a>
     <a class="dropdown-item" href="SearchByName.jsp" class="form-control me-0"style='color: blue'>SearchByName</a>
-    <a class="dropdown-item" href="Updated.jsp" class="form-control me-0"style='color: blue'>Updated Page</a>
-    <a class="dropdown-item" href="Delete.jsp" class="form-control me-0"style='color: blue'>Deleted Page</a>
-    <a class="dropdown-item" href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: blue'>SearchByNameByBrandName Page</a>
-    <a class="dropdown-item" href="FindAll.jsp" class="form-control me-0"style='color: blue'>FindAll Page</a>
-    <a class="dropdown-item" href="ImageUpload.jsp" class="form-control me-0"style='color: blue'>UploadImage Page</a>
-    <a class="dropdown-item" href="DisplayImage.jsp" class="form-control me-0"style='color: blue'>DisplayImage Page</a>
+    <a class="dropdown-item" href="Updated.jsp" class="form-control me-0"style='color: blue'>Updated</a>
+    <a class="dropdown-item" href="Delete.jsp" class="form-control me-0"style='color: blue'>Deleted</a>
+    <a class="dropdown-item" href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: blue'>SearchByNameByBrandName</a>
+    <a class="dropdown-item" href="FindAll.jsp" class="form-control me-0"style='color: blue'>FindAll</a>
+    <a class="dropdown-item" href="ImageUpload.jsp" class="form-control me-0"style='color: blue'>UploadImage</a>
+    <a class="dropdown-item" href="DisplayImage.jsp" class="form-control me-0"style='color: blue'>DisplayImage</a>
     
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="#"></a>
   </div>
 </div> 
 			
-
-
-			<!-- <form class="d-flex">
-
-				<a href="mobile" class="form-control me-0" style='color: OrangeRed'>Mobiles</a>
-				<br>
-				 <a href="MobileSearch.jsp" class="form-control me-0"style='color: OrangeRed'>SeearchByID</a> 
-				<br>	
-				<a href="SearchByName.jsp"class="form-control me-0" style='color: OrangeRed'>SearchByName</a>
-					
-				<br> 
-				<a href="Updated.jsp" class="form-control me-0"style='color: OrangeRed'>Updated</a>
-				<br>	
-				<br> <a href="Delete.jsp" class="form-control me-0"style='color: OrangeRed'>Delete</a>
-				<br> <a href="SearchNameBybrandName.jsp" class="form-control me-0"style='color: OrangeRed'>SearchByNameByBrandName</a>
-			</form>
-
- -->
 		</div>
 	</nav>
 
@@ -101,7 +83,14 @@
 		<h1 style="color: Lime">Welcome to P K Mani Mobile</h1>
 	</marquee>
 
-
+ <style>
+      @media (prefers-color-scheme: dark) {
+        html {
+          background: var(--md-background-color);
+        }
+      }
+    </style>
+ 
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,8 +108,8 @@
 	
 /* Make the image fully responsive */
 .carousel-inner img {
-	width: 80%;
-	height: 10%;
+	width: 60%;
+	height: 20%;
 }
 </style>
 </head>
@@ -170,6 +159,4 @@
 
 
 </body>
-
-
 </html>

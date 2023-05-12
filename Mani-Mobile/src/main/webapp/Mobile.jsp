@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Mobile</title>
 </head>
 <body>
 
@@ -29,19 +29,17 @@
 
 				<form class="d-flex">
 					<a href="index.jsp" class="form-control me-0"
-						style='color: OrangeRed'>Home</a>
-
-
-				</form>
-
-				<form class="d-flex">
+						style='color: OrangeRed'>Home</a><br>
+				
 					<a href="MobileSearch.jsp" class="form-control me-0"
 						style='color: OrangeRed'>MobileSearch</a>
-
-
 				</form>
 		</div>
 	</nav>
+	
+	<c:forEach items="${error}" var="f">
+	<option style="color:red" value="${f.message}">${f.message}</option>
+	</c:forEach>
 
 	<form action="Mobile" method="post"
 		class="container col-20 col-sm-6 col-md-4 shadow-lg p-4 mb-4 bg-white mx-auto d-block border border-primary rounded-lg 
@@ -54,26 +52,26 @@ m-5 pb-5 bg-info">
 
 			<tr>
 				<td>Mobile Name</td>
-				<td><input type="text" name="name" value=""></td>
+				<td><input type="text" name="name" value="${dto.name }"></td>
 			</tr>
 
 			<tr>
 
 				<td>Brand Name</td>
-				<td><input type="text" name="brandName" value=""></td>
+				<td><input type="text" name="brandName" value="${dto.brandName }"></td>
 			</tr>
 
 			<tr>
 
 				<td>Model Name</td>
-				<td><input type="text" name="modelName" value=""></td>
+				<td><input type="text" name="modelName" value="${dto.modelName }"></td>
 			</tr>
 
 			<tr>
 
 				<td>Os</td>
 				<td><select name="os">
-						<option value="">---Select Os-----</option>
+						<option value="${dto.os }">${dto.os }</option>
 						<c:forEach items="${os}" var="o">
 							<option value="${o}">${o}</option>
 						</c:forEach>
@@ -84,7 +82,7 @@ m-5 pb-5 bg-info">
 
 				<td>Storage</td>
 				<td><select name="storage">
-						<option value="">----Select Storage----</option>
+						<option value="${dto.storage }">${dto.storage }</option>
 						<c:forEach items="${storage}" var="d">
 							<option value="${d}">${d}</option>
 						</c:forEach>
@@ -94,8 +92,8 @@ m-5 pb-5 bg-info">
 			<tr>
 
 				<td>Cellular Technology</td>
-				<td><input type="radio" name="technology" value="">5G
-	                <input type="radio" name="technology" value="">4G</td>
+				<td><input type="text" name="technology" value="${dto.technology }">
+	                
 
 			</tr>
 
@@ -103,7 +101,7 @@ m-5 pb-5 bg-info">
 
 				<td>Colors</td>
 				<td><select name="colors">
-						<option value="">-----Select Color------</option>
+						<option value="${dto.colors }">${dto.colors }</option>
 						<c:forEach items="${colors}" var="c">
 							<option value="${c}">${c}</option>
 						</c:forEach>

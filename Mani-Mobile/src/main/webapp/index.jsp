@@ -15,20 +15,17 @@
 		rel="stylesheet">
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-</head>
 <body>
 
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-		rel="stylesheet"
-		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 		crossorigin="anonymous">
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
-	</he
-ad>
+	</head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
 		<div class="container-fluid">
@@ -43,9 +40,20 @@ ad>
 			</button>
 
 			<form class="d-flex">
-				<a href="Mobile" class="form-control me-0" style='color: OrangeRed'>Mobile</a>
-
-
+				<a href="Mobile" class="form-control me-0" style='color: OrangeRed'>Mobiles</a>
+			</form>
+			<form class="d-flex">
+				<a href="FindById.jsp" class="form-control me-0"
+					style='color: OrangeRed'>FindById</a>
+			</form>
+			<form class="d-flex">
+				<a href="FindByName.jsp" class="form-control me-0"
+					style='color: OrangeRed'>FindByName</a>
+			</form>
+			
+			<form class="d-flex">
+				<a href="Updatedd.jsp" class="form-control me-0"
+					style='color: OrangeRed'>UpdatedPage</a>
 			</form>
 		</div>
 	</nav>

@@ -190,7 +190,7 @@ public class MobileServiceIMPL implements MobileService {
 			MobileEntity entity = new MobileEntity();
 
 			// It is Creating all properties in oneline get and set
-			// BeanUtils.copyProperties(dto, entity);
+			// BeanUtils.copyProperties(entity, dto);
 
 			entity.setId(dto.getId());
 			entity.setName(dto.getName());

@@ -17,7 +17,7 @@ public class ManiConfiguration {
 
 	@Bean
 	public ViewResolver viewResolver() {
-
+		System.out.println("Running in View Resolver.....");
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver("/", ".jsp");
 		return resolver;
 	}

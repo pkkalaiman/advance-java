@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.xworkz.mobile.Entity.MobileEntity;
 import com.xworkz.mobile.MobileDTO.MobileDTO;
 import com.xworkz.mobile.Service.MobileService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("/")
+@Slf4j
 public class MobileController {
 
 	@Autowired
@@ -104,7 +106,7 @@ public class MobileController {
 		if (name != null && !name.isEmpty() || brandName != null && !brandName.isEmpty()) {
 			model.addAttribute("name", list);
 		} else {
-			List<MobileDTO> moblilstdto = this.mobileService.findByNameByBrandName(name, brandName);
+			List<MobileDTO> moblildto = this.mobileService.findByNameByBrandName(name, brandName);
 			model.addAttribute("Error", "NameAndBrandName not Matched");
 		}
 		return "SearchNameBybrandName";
@@ -115,7 +117,7 @@ public class MobileController {
 		System.out.println("Running in onUpdated in Controller :" + id);
 
 		MobileDTO dto = this.mobileService.finById(id);
-		System.out.println("entity :" + dto);
+		System.out.println("entity" + dto);
 		model.addAttribute("os", os);
 		model.addAttribute("dto", dto);
 		model.addAttribute("storage", storage);
@@ -154,10 +156,10 @@ public class MobileController {
 	public String onFindAll(Model model) {
 		System.out.println("Creating in onFindAll in Controller...");
 		List<MobileDTO> list = this.mobileService.findAll();
+
 		if (list != null && !list.isEmpty()) {
 			model.addAttribute("findall", list);
 		} else {
-			
 			model.addAttribute("error", "Data not found in DataBase");
 		}
 		return "FindAll";

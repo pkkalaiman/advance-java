@@ -21,7 +21,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="60" height="50">
+				alt="" width="60" height="50"></a>
 
 
 				<form class="d-flex">
@@ -30,9 +30,10 @@
 				</form>
 		</div>
 	</nav>
-	<h1>Display Image Test</h1>
-    <img src="display?filName=pkmani.jpeg" height="400" width="500">
+	<h1 style="color:green">Display Image Test</h1>
+    
 	<img src="display?filName=mani.jpg" height="400" width="500"/>
+	<img src="display?filName=pkmani.jpeg" height="400" width="500">
 	
 
 </body>

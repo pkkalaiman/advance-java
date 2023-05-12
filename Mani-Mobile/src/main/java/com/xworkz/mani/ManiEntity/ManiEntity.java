@@ -3,6 +3,7 @@ package com.xworkz.mani.ManiEntity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "mani_table")
+@NamedQuery(name="finByName", query = "select enti from ManiEntity enti where enti.name=:name")
 public class ManiEntity {
 
 	@Id
@@ -25,11 +27,11 @@ public class ManiEntity {
 	private String brandName;
 	@Column(name = "m_modelName")
 	private String modelName;
-	@Column(name = "m_Os")
+	@Column(name = "m_os")
 	private String os;
 	@Column(name = "m_storage")
-	private int storage;
-	@Column(name = "m_technology")
+	private String storage;
+	@Column(name = "m_tescnology")
 	private String technology;
 	@Column(name = "m_color")
 	private String colors;

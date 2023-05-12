@@ -51,8 +51,12 @@ public class ManiController {
 
 		Set<ConstraintViolation<ManiDTO>> violation = this.maniService.ValidateAndSave(dto);
 		if (violation.isEmpty()) {
-			System.out.println("No Volation in controller go to Success Page");
 
+			System.out.println("No Volation in controller go to Success Page");
+			model.addAttribute("message", "Data Is Saved");
+			model.addAttribute("os", os);
+			model.addAttribute("storage", storage);
+			model.addAttribute("colors", colors);
 			return "Success";
 		}
 
@@ -61,8 +65,65 @@ public class ManiController {
 		model.addAttribute("storage", storage);
 		model.addAttribute("colors", colors);
 		model.addAttribute("error", violation);
-		model.addAttribute("Validate Dto", dto);
+		model.addAttribute("dto", dto);
 		return "Mobile";
+	}
+
+	@GetMapping("/findId")
+	public String onfindById(int id, Model model) {
+		System.out.println("Created in onFindByIdin Controler..");
+
+		ManiDTO dto = this.maniService.finById(id);
+
+		if (dto != null) {
+			model.addAttribute("dto", dto);
+		} else {
+			model.addAttribute("message", "Data Not Found");
+		}
+		return "FindById";
+	}
+
+	@GetMapping("/SearchByName")
+	public String findByName(String name, Model model) {
+		System.out.println("Created in On findBbyName....");
+
+		List<ManiDTO> list = this.maniService.findByName(name);
+		if (list.size() > 0) {
+			model.addAttribute("list", list);
+		} else {
+			model.addAttribute("error", "Name Not Matched");
+		}
+		return "FindByName";
+	}
+
+	@GetMapping("/Update")
+	public String onUpdate(int id, Model model) {
+		System.out.println("Created in OnUpdate in Controller");
+		ManiDTO dto = this.maniService.finById(id);
+		
+		model.addAttribute("entity", dto);
+		
+		model.addAttribute("dto", dto);
+		model.addAttribute("os", os);
+		model.addAttribute("storage", storage);
+		model.addAttribute("colors", colors);
+		return "Updatedd";
+	}
+	
+	@PostMapping("/Update")
+	public String onUpdate(ManiDTO dto, Model model) {
+		System.out.println("Created in OnUpdate in Controller Page...");
+		
+		Set<ConstraintViolation<ManiDTO>> violation=this.maniService.ValidateAndUpdate(dto);
+		
+		if(violation.size() >0){
+			model.addAttribute("message", violation);
+			model.addAttribute("dto", dto);
+		}else {
+			model.addAttribute("message", "Mani Update Successfull...");
+			model.addAttribute("dto",dto);
+		}
+		return "Updatedd";
 	}
 
 }

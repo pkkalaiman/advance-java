@@ -15,7 +15,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link
 		href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-		rel="stylesheet">
+		rel="stylesheet"></link>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -24,7 +24,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="50" height="30">
+				alt="" width="50" height="30"></a>
 
 
 				<form class="d-flex">

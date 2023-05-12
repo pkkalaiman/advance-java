@@ -21,7 +21,7 @@
 		<div class="container-fluid">
 			<a class="navbar-brand" href="#"> <img
 				src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5hLacfhlnTGv3fDvLEJd8pkvFM85ZJCFoKg&usqp=CAU"
-				alt="" width="60" height="50">
+				alt="" width="60" height="50"></a>
 
 
 				<form class="d-flex">
