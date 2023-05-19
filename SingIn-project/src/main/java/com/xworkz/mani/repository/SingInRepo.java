@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import com.xworkz.mani.Entity.SingInEntity;
-import com.xworkz.mani.Entity.TechnologyEntity;
 
 public interface SingInRepo {
 
@@ -45,10 +44,10 @@ public interface SingInRepo {
 		return null;
 	}
 
-	boolean saveTechnology(TechnologyEntity entity);
-
-	default List<TechnologyEntity> viewTechnology(String view) {
-		return null;
-	}
+	/*
+	 * boolean saveTechnology(TechnologyEntity entity);
+	 * 
+	 * default List<TechnologyEntity> viewTechnology(String view) { return null; }
+	 */
 
 }

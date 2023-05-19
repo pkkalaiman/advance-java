@@ -29,7 +29,6 @@ import org.springframework.stereotype.Service;
 
 import com.xworkz.mani.DTO.SingInDTO;
 import com.xworkz.mani.Entity.SingInEntity;
-import com.xworkz.mani.Entity.TechnologyEntity;
 import com.xworkz.mani.repository.SingInRepo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -173,6 +172,7 @@ public class SingInServiceImple implements SingInService {
 
 		Long userCount = this.singinrepo.findByUser(user);
 		return userCount;
+		
 	}
 
 	@Override
@@ -238,7 +238,6 @@ public class SingInServiceImple implements SingInService {
 
 		String resetpwd = DefaultPasswordGenerator.generate(6);
 		SingInEntity entity = this.singinrepo.reSetPassword(email);
-		// log.info("ReSetd password--- " + resetpwd);
 
 		if (entity != null) {
 			log.info("entity found for email" + email);
@@ -270,50 +269,49 @@ public class SingInServiceImple implements SingInService {
 	}
 
 
-	@Override
-	public SingInDTO updateProfile(String userId, String email, Long mobile, String imagePath) {
-		log.info("Running in updated Profile in Serviceee....");
+	/*
+	 * @Override public SingInDTO updateProfile(String userId, String email, Long
+	 * mobile, String imagePath) {
+	 * log.info("Running in updated Profile in Serviceee....");
+	 * 
+	 * SingInEntity sinentity = this.singinrepo.reSetPassword(email);
+	 * 
+	 * log.info("userId :" + userId + "email :" + email + "mobile :" + mobile +
+	 * "image name :" + imagePath);
+	 * 
+	 * sinentity.setUserId(userId); sinentity.setMobile(mobile);
+	 * sinentity.setPicName(imagePath); boolean update =
+	 * this.singinrepo.update(sinentity); log.info("userudate" + update);
+	 * 
+	 * return SingInService.super.updateProfile(userId, email, mobile, imagePath); }
+	 */
 
-		SingInEntity sinentity = this.singinrepo.reSetPassword(email);
-
-		log.info("userId :" + userId + "email :" + email + "mobile :" + mobile + "image name :" + imagePath);
-
-		sinentity.setUserId(userId);
-		sinentity.setMobile(mobile);
-		sinentity.setPicName(imagePath);
-		boolean update = this.singinrepo.update(sinentity);
-		log.info("userudate" + update);
-
-		return SingInService.super.updateProfile(userId, email, mobile, imagePath);
-	}
-
-	@Override
-	public SingInDTO addTechnology(String userId, TechnologyEntity technologyEntity) {
-
-		log.info("Running addTechnology in service impl");
-
-		SingInEntity singInEntity = this.singinrepo.userSignIn(userId);
-		technologyEntity.setCreatedBy(userId);
-		technologyEntity.setSingInEntity(singInEntity);
-		log.info("accessing entity" + singInEntity);
-
-		boolean saved = this.singinrepo.saveTechnology(technologyEntity);
-		log.info("Technologies saved in database" + saved);
-
-		return SingInService.super.addTechnology(userId, technologyEntity);
-	}
-
-	@Override
-	public List<TechnologyEntity> viewTechnology(String userId) {
-		log.info("Running view Technology in service imple");
-
-		SingInEntity signUpEntity = this.singinrepo.userSignIn(userId);
-		List<TechnologyEntity> technology = signUpEntity.getTechnology();
-		log.info("Getting technologies as per userId : " + userId + " -> " + technology);
-
-		return technology;
-	}
-	
+	/*
+	 * @Override public SingInDTO addTechnology(String userId, TechnologyEntity
+	 * technologyEntity) {
+	 * 
+	 * log.info("Running addTechnology in service impl");
+	 * 
+	 * SingInEntity singInEntity = this.singinrepo.userSignIn(userId);
+	 * technologyEntity.setCreatedBy(userId);
+	 * technologyEntity.setSingInEntity(singInEntity); log.info("accessing entity" +
+	 * singInEntity);
+	 * 
+	 * boolean saved = this.singinrepo.saveTechnology(technologyEntity);
+	 * log.info("Technologies saved in database" + saved);
+	 * 
+	 * return SingInService.super.addTechnology(userId, technologyEntity); }
+	 * 
+	 * @Override public List<TechnologyEntity> viewTechnology(String userId) {
+	 * log.info("Running view Technology in service imple");
+	 * 
+	 * SingInEntity signUpEntity = this.singinrepo.userSignIn(userId);
+	 * List<TechnologyEntity> technology = signUpEntity.getTechnology();
+	 * log.info("Getting technologies as per userId : " + userId + " -> " +
+	 * technology);
+	 * 
+	 * return technology; }
+	 */
 	
 
 	public final static class DefaultPasswordGenerator {

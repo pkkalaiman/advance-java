@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.xworkz.mani.Entity.SingInEntity;
-import com.xworkz.mani.Entity.TechnologyEntity;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -196,38 +195,27 @@ public class SingInRepoImple implements SingInRepo {
 		}
 	}
 
-	@Override
-	public Long findCountByEmailAndUserAndMobile(String email, String userId, long mobile) {
-
-		EntityManager manager = this.entityManagerFactory.createEntityManager();
-
-		Query query = manager.createNamedQuery("findByCount");
-		query.setParameter("e", email);
-		query.setParameter("u", userId);
-		query.setParameter("m", mobile);
-		Object object = query.getSingleResult();
-		Long count = (Long) object;
-		log.error("" + count);
-
-		return count;
-	}
-
-	@Override
-	public boolean saveTechnology(TechnologyEntity entity) {
-		log.info("Running save in saveTechnology");
-
-		EntityManager em = this.entityManagerFactory.createEntityManager();
-		try {
-			EntityTransaction et = em.getTransaction();
-			et.begin();
-			em.persist(entity);
-			et.commit();
-			return true;
-		} finally {
-			em.close();
-		}
-	}
-	
+	/*
+	 * @Override public Long findCountByEmailAndUserAndMobile(String email, String
+	 * userId, long mobile) {
+	 * 
+	 * EntityManager manager = this.entityManagerFactory.createEntityManager();
+	 * 
+	 * Query query = manager.createNamedQuery("findByCount");
+	 * query.setParameter("e", email); query.setParameter("u", userId);
+	 * query.setParameter("m", mobile); Object object = query.getSingleResult();
+	 * Long count = (Long) object; log.error("" + count);
+	 * 
+	 * return count; }
+	 */
+	/*
+	 * @Override public boolean saveTechnology(TechnologyEntity entity) {
+	 * log.info("Running save in saveTechnology");
+	 * 
+	 * EntityManager em = this.entityManagerFactory.createEntityManager(); try {
+	 * EntityTransaction et = em.getTransaction(); et.begin(); em.persist(entity);
+	 * et.commit(); return true; } finally { em.close(); } }
+	 */
 	
 
 }

@@ -7,7 +7,6 @@ import java.util.Set;
 import javax.validation.ConstraintViolation;
 
 import com.xworkz.mani.DTO.SingInDTO;
-import com.xworkz.mani.Entity.TechnologyEntity;
 
 public interface SingInService {
 
@@ -47,11 +46,10 @@ public interface SingInService {
 		return null;
 	}
 
-	default SingInDTO addTechnology(String userId, TechnologyEntity entity) {
-		return null;
-	}
-
-	default List<TechnologyEntity> viewTechnology(String userId) {
-		return null;
-	}
+	/*
+	 * default SingInDTO addTechnology(String userId, TechnologyEntity entity) {
+	 * return null; }
+	 * 
+	 * default List<TechnologyEntity> viewTechnology(String userId) { return null; }
+	 */
 }

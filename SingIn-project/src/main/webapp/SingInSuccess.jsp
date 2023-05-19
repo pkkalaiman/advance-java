@@ -46,10 +46,10 @@
 		</div>
 	</nav>
 	
-	<a href="UpdateProfile.jsp" class="btn btn-warning"> Update Profile </a>
+	<%-- <a href="UpdateProfile.jsp" class="btn btn-warning"> Update Profile </a>
 	<a href="AddTechnology.jsp" class="btn btn-warning"> Add Technology </a>
 	<a href="viewTech?userId=${userID}" class="btn btn-warning" > View Technology </a>
-	
+	 --%>
 
 	<h1>Welcome Mstr(or)Miss ${userID}</h1>
 

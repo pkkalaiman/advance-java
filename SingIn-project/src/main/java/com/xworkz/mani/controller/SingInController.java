@@ -1,6 +1,7 @@
 package com.xworkz.mani.controller;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +10,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalTime;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.ServletOutputStream;
@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
 
-import java.io.File;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.xworkz.mani.DTO.SingInDTO;
-import com.xworkz.mani.Entity.TechnologyEntity;
 import com.xworkz.mani.service.SingInService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -182,26 +180,25 @@ public class SingInController {
 		}
 	}
 
-	@PostMapping("/technology")
-	public String onTechnology(String userId, TechnologyEntity entity, Model model) {
-		log.info("Running technology in controller");
-
-		SingInDTO dto = this.singInService.addTechnology(userId, entity);
-		log.info("" + dto);
-		model.addAttribute("techs", "technologies added successfully");
-		model.addAttribute("techno", entity);
-		return "AddTechnology";
-
-	}
-
-	@GetMapping("/viewTech")
-	public String onViewTech(@RequestParam String userId, Model model) {
-
-		log.info("Running view Technology in controller");
-		List<TechnologyEntity> technology = this.singInService.viewTechnology(userId);
-		model.addAttribute("viewTech", technology);
-
-		return "ViewTechnology";
-	}
+	/*
+	 * @PostMapping("/technology") public String onTechnology(String userId,
+	 * TechnologyEntity entity, Model model) {
+	 * log.info("Running technology in controller");
+	 * 
+	 * SingInDTO dto = this.singInService.addTechnology(userId, entity); log.info(""
+	 * + dto); model.addAttribute("techs", "technologies added successfully");
+	 * model.addAttribute("techno", entity); return "AddTechnology";
+	 * 
+	 * }
+	 * 
+	 * @GetMapping("/viewTech") public String onViewTech(@RequestParam String
+	 * userId, Model model) {
+	 * 
+	 * log.info("Running view Technology in controller"); List<TechnologyEntity>
+	 * technology = this.singInService.viewTechnology(userId);
+	 * model.addAttribute("viewTech", technology);
+	 * 
+	 * return "ViewTechnology"; }
+	 */
 
 }
